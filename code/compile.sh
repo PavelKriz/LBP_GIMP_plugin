@@ -12,9 +12,11 @@ GO1="$1"
 GO2=$(echo $GO1 | awk '{ gsub("gcc","g++"); str1 = $0;
 									str2 = str1 " -lm"; print str2}')
 #all cpps
-GO3=$(echo $GO2 | awk '{ gsub("PavelsLBPGimpPlugin.cpp", "PavelsLBPGimpPlugin.cpp CAbstractLBP.cpp CLBP.cpp CMLBP.cpp CULBP.cpp CCLBP.cpp CTile.cpp CTileManager.cpp CProcessHandler.cpp"); print $0}')
+GO3=$(echo $GO2 | awk '{ gsub("\047PavelsLBPGimpPlugin.cpp\047", "PavelsLBPGimpPlugin.cpp CAbstractLBP.cpp CLBP.cpp CMLBP.cpp CULBP.cpp CCLBP.cpp CTile.cpp CTileManager.cpp CProcessHandler.cpp"); print $0}')
 echo  
 echo "Building and installing plugin"  
+echo
+echo	"$GO3"
 echo
 eval "$GO3"
 echo 
