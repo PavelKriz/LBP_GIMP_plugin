@@ -1,0 +1,146 @@
+\hypertarget{_u_i_8hpp}{}\doxysection{C\+:/\+Users/\+Pavel/\+Desktop/tmp/\+UI.hpp File Reference}
+\label{_u_i_8hpp}\index{C:/Users/Pavel/Desktop/tmp/UI.hpp@{C:/Users/Pavel/Desktop/tmp/UI.hpp}}
+
+
+Helping functions for plugin UI.  
+
+
+{\ttfamily \#include \char`\"{}params.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$libgimp/gimp.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}S\+U\+I\+Info.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$string$>$}\newline
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{_u_i_8hpp_a7af0e27a71a9565182a91efca1060687}{non\+Interactive\+Method\+Parser}} (std\+::string s\+Method)
+\begin{DoxyCompactList}\small\item\em Function that parses input from command line. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_u_i_8hpp_a0da95cf0e13e796f4b20f9faefb92d97}{non\+Interactive\+Parser}} (const gchar $\ast$cs\+Method, gint to\+Radius, gint to\+Points\+Count)
+\begin{DoxyCompactList}\small\item\em non\+Interactive\+Parser sets int parameters and pass c++ method string to method parser and ranges checker -\/ \mbox{\hyperlink{_u_i_8hpp_a7af0e27a71a9565182a91efca1060687}{non\+Interactive\+Method\+Parser()}} \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_i_8hpp_a5e5d005cb7e4f356dc866b27ac250f56}{sub\+Method\+Parser}} (Gtk\+Widget $\ast$widget, gpointer combo\+Box)
+\begin{DoxyCompactList}\small\item\em sub\+Method\+Parser parses sub method from submethod combo box \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_i_8hpp_a8edac72f85f6b040b9d971ef29a7fc7d}{method\+Parser}} (Gtk\+Widget $\ast$widget, gpointer combo\+Box)
+\begin{DoxyCompactList}\small\item\em method\+Parser parses method from bmethod combo box \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_i_8hpp_af6ed38e1ff7d5a2ac48644697e513b51}{U\+I\+Combo\+Box}} (Gtk\+Widget $\ast$combo\+Box, Gtk\+Widget $\ast$main\+\_\+choicebox)
+\begin{DoxyCompactList}\small\item\em U\+I\+Combo\+Box is sequence of function calls to set method combo box. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_u_i_8hpp_af9bc8ccaf7d02d9d5d2a5dc8baa539e4}{U\+I\+Sub\+Combo\+Box}} (Gtk\+Widget $\ast$sub\+Combo\+Box, Gtk\+Widget $\ast$main\+\_\+choicebox)
+\begin{DoxyCompactList}\small\item\em U\+I\+Sub\+Combo\+Box is sequence of function calls to set sub method combo box. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Helping functions for plugin UI. 
+
+\begin{DoxyAuthor}{Author}
+Pavel Kříž 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2019/11/30 
+\end{DoxyDate}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{_u_i_8hpp_a8edac72f85f6b040b9d971ef29a7fc7d}\label{_u_i_8hpp_a8edac72f85f6b040b9d971ef29a7fc7d}} 
+\index{UI.hpp@{UI.hpp}!methodParser@{methodParser}}
+\index{methodParser@{methodParser}!UI.hpp@{UI.hpp}}
+\doxysubsubsection{\texorpdfstring{methodParser()}{methodParser()}}
+{\footnotesize\ttfamily void method\+Parser (\begin{DoxyParamCaption}\item[{Gtk\+Widget $\ast$}]{widget,  }\item[{gpointer}]{combo\+Box }\end{DoxyParamCaption})}
+
+
+
+method\+Parser parses method from bmethod combo box 
+
+It is also setting ranges of number of neighbor points spinn button and hiding or showing submethod combo box
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em widget} & combo\+Box widget \\
+\hline
+\mbox{\texttt{ in}}  & {\em combo\+Box} & pointer to method choice combo box \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_i_8hpp_a7af0e27a71a9565182a91efca1060687}\label{_u_i_8hpp_a7af0e27a71a9565182a91efca1060687}} 
+\index{UI.hpp@{UI.hpp}!nonInteractiveMethodParser@{nonInteractiveMethodParser}}
+\index{nonInteractiveMethodParser@{nonInteractiveMethodParser}!UI.hpp@{UI.hpp}}
+\doxysubsubsection{\texorpdfstring{nonInteractiveMethodParser()}{nonInteractiveMethodParser()}}
+{\footnotesize\ttfamily bool non\+Interactive\+Method\+Parser (\begin{DoxyParamCaption}\item[{std\+::string}]{s\+Method }\end{DoxyParamCaption})}
+
+
+
+Function that parses input from command line. 
+
+It parses method that was typed as first plugin argument and it as checking ranges of other parameters too
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em s\+Method} & string containing method argument from command line \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_i_8hpp_a0da95cf0e13e796f4b20f9faefb92d97}\label{_u_i_8hpp_a0da95cf0e13e796f4b20f9faefb92d97}} 
+\index{UI.hpp@{UI.hpp}!nonInteractiveParser@{nonInteractiveParser}}
+\index{nonInteractiveParser@{nonInteractiveParser}!UI.hpp@{UI.hpp}}
+\doxysubsubsection{\texorpdfstring{nonInteractiveParser()}{nonInteractiveParser()}}
+{\footnotesize\ttfamily bool non\+Interactive\+Parser (\begin{DoxyParamCaption}\item[{const gchar $\ast$}]{cs\+Method,  }\item[{gint}]{to\+Radius,  }\item[{gint}]{to\+Points\+Count }\end{DoxyParamCaption})}
+
+
+
+non\+Interactive\+Parser sets int parameters and pass c++ method string to method parser and ranges checker -\/ \mbox{\hyperlink{_u_i_8hpp_a7af0e27a71a9565182a91efca1060687}{non\+Interactive\+Method\+Parser()}} 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em cs\+Method} & c string method choice paramater typed in command line \\
+\hline
+\mbox{\texttt{ in}}  & {\em to\+Radius} & radius parameter typed in command line \\
+\hline
+\mbox{\texttt{ in}}  & {\em to\+Points\+Count} & number of points paramater typed in command line \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_i_8hpp_a5e5d005cb7e4f356dc866b27ac250f56}\label{_u_i_8hpp_a5e5d005cb7e4f356dc866b27ac250f56}} 
+\index{UI.hpp@{UI.hpp}!subMethodParser@{subMethodParser}}
+\index{subMethodParser@{subMethodParser}!UI.hpp@{UI.hpp}}
+\doxysubsubsection{\texorpdfstring{subMethodParser()}{subMethodParser()}}
+{\footnotesize\ttfamily void sub\+Method\+Parser (\begin{DoxyParamCaption}\item[{Gtk\+Widget $\ast$}]{widget,  }\item[{gpointer}]{combo\+Box }\end{DoxyParamCaption})}
+
+
+
+sub\+Method\+Parser parses sub method from submethod combo box 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em widget} & combo\+Box widget \\
+\hline
+\mbox{\texttt{ in}}  & {\em combo\+Box} & pointer to sub-\/method choice combo box \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_i_8hpp_af6ed38e1ff7d5a2ac48644697e513b51}\label{_u_i_8hpp_af6ed38e1ff7d5a2ac48644697e513b51}} 
+\index{UI.hpp@{UI.hpp}!UIComboBox@{UIComboBox}}
+\index{UIComboBox@{UIComboBox}!UI.hpp@{UI.hpp}}
+\doxysubsubsection{\texorpdfstring{UIComboBox()}{UIComboBox()}}
+{\footnotesize\ttfamily void U\+I\+Combo\+Box (\begin{DoxyParamCaption}\item[{Gtk\+Widget $\ast$}]{combo\+Box,  }\item[{Gtk\+Widget $\ast$}]{main\+\_\+choicebox }\end{DoxyParamCaption})}
+
+
+
+U\+I\+Combo\+Box is sequence of function calls to set method combo box. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em combo\+Box} & pointer to already initialized combo box \\
+\hline
+\mbox{\texttt{ in}}  & {\em main\+\_\+choicebox} & pointer to box where will be widget placed \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{_u_i_8hpp_af9bc8ccaf7d02d9d5d2a5dc8baa539e4}\label{_u_i_8hpp_af9bc8ccaf7d02d9d5d2a5dc8baa539e4}} 
+\index{UI.hpp@{UI.hpp}!UISubComboBox@{UISubComboBox}}
+\index{UISubComboBox@{UISubComboBox}!UI.hpp@{UI.hpp}}
+\doxysubsubsection{\texorpdfstring{UISubComboBox()}{UISubComboBox()}}
+{\footnotesize\ttfamily void U\+I\+Sub\+Combo\+Box (\begin{DoxyParamCaption}\item[{Gtk\+Widget $\ast$}]{sub\+Combo\+Box,  }\item[{Gtk\+Widget $\ast$}]{main\+\_\+choicebox }\end{DoxyParamCaption})}
+
+
+
+U\+I\+Sub\+Combo\+Box is sequence of function calls to set sub method combo box. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em sub\+Combo\+Box} & pointer to already initialized combo box \\
+\hline
+\mbox{\texttt{ in}}  & {\em main\+\_\+choicebox} & pointer to box where will be widget placed \\
+\hline
+\end{DoxyParams}

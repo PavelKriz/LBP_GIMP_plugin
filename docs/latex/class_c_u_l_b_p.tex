@@ -1,0 +1,128 @@
+\hypertarget{class_c_u_l_b_p}{}\doxysection{C\+U\+L\+BP Class Reference}
+\label{class_c_u_l_b_p}\index{CULBP@{CULBP}}
+
+
+\mbox{\hyperlink{class_c_u_l_b_p}{C\+U\+L\+BP}} is class that provides implementation of improved L\+BP method.  
+
+
+
+
+{\ttfamily \#include $<$C\+U\+L\+B\+P.\+hpp$>$}
+
+Inheritance diagram for C\+U\+L\+BP\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_c_u_l_b_p}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_u_l_b_p_abae68e786cb5e7c575dc15a714ab47ac}{C\+U\+L\+BP}} (\mbox{\hyperlink{struct_s_in_out_rgns}{S\+In\+Out\+Rgns}} to\+In\+Out, int to\+Radius, int to\+Neighbour\+Points\+Count)
+\begin{DoxyCompactList}\small\item\em Constructor just calls its parents constructor and sets inner state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_u_l_b_p_a7aa6739ca041ca2151976835b2308100}{process}} (unsigned char $\ast$in\+Buf, unsigned char $\ast$out\+Buf, int out\+Width, int out\+Height, int channels) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_u_l_b_p_a7aa6739ca041ca2151976835b2308100}{process()}} just passes parameters to private ulbp function \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_c_u_l_b_p_aa79c54687fc9d8c0db5abd239fca3357}{is\+Finished}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_u_l_b_p_aa79c54687fc9d8c0db5abd239fca3357}{is\+Finished()}} returns ture if is inner state set to finished, otherwise false \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_u_l_b_p_ad80ef6b32077a4aa067e0aa4f89cceae}{loop}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_u_l_b_p_ad80ef6b32077a4aa067e0aa4f89cceae}{loop()}} just calls finished, becouse after one iteration over image is U\+L\+BP finished \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_c_u_l_b_p}{C\+U\+L\+BP}} is class that provides implementation of improved L\+BP method. 
+
+in U\+L\+BP are taken into account only uniform values -\/ uniform value is value that has in binary form max two transitions between 0 and1 examples\+: 00011111 -\/ uniform 11000111 -\/ uniform 01000110 -\/ non-\/uniform 01010101 -\/ non-\/uniform 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_u_l_b_p_abae68e786cb5e7c575dc15a714ab47ac}\label{class_c_u_l_b_p_abae68e786cb5e7c575dc15a714ab47ac}} 
+\index{CULBP@{CULBP}!CULBP@{CULBP}}
+\index{CULBP@{CULBP}!CULBP@{CULBP}}
+\doxysubsubsection{\texorpdfstring{CULBP()}{CULBP()}}
+{\footnotesize\ttfamily C\+U\+L\+B\+P\+::\+C\+U\+L\+BP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_s_in_out_rgns}{S\+In\+Out\+Rgns}}}]{to\+In\+Out,  }\item[{int}]{to\+Radius,  }\item[{int}]{to\+Neighbour\+Points\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor just calls its parents constructor and sets inner state. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em to\+In\+Out} & struct holding pointers to in and out regions (gimp\+\_\+pixel\+\_\+rgn), there is needed for pixels input and output \\
+\hline
+\mbox{\texttt{ in}}  & {\em to\+Radius} & radius for U\+L\+BP \\
+\hline
+\mbox{\texttt{ in}}  & {\em to\+Neighbour\+Points\+Count} & number of neighbor points -\/ U\+L\+BP \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_u_l_b_p_aa79c54687fc9d8c0db5abd239fca3357}\label{class_c_u_l_b_p_aa79c54687fc9d8c0db5abd239fca3357}} 
+\index{CULBP@{CULBP}!isFinished@{isFinished}}
+\index{isFinished@{isFinished}!CULBP@{CULBP}}
+\doxysubsubsection{\texorpdfstring{isFinished()}{isFinished()}}
+{\footnotesize\ttfamily bool C\+U\+L\+B\+P\+::is\+Finished (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_u_l_b_p_aa79c54687fc9d8c0db5abd239fca3357}{is\+Finished()}} returns ture if is inner state set to finished, otherwise false 
+
+=== Documentation from \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}}\+: === \mbox{\hyperlink{class_c_u_l_b_p_aa79c54687fc9d8c0db5abd239fca3357}{is\+Finished()}} return true if is process finished and output is done, otherwise returns true 
+
+Implements \mbox{\hyperlink{class_c_algorithm_a73a168113d4cf2aeba1bd738cc931a6f}{C\+Algorithm}}.
+
+\mbox{\Hypertarget{class_c_u_l_b_p_ad80ef6b32077a4aa067e0aa4f89cceae}\label{class_c_u_l_b_p_ad80ef6b32077a4aa067e0aa4f89cceae}} 
+\index{CULBP@{CULBP}!loop@{loop}}
+\index{loop@{loop}!CULBP@{CULBP}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void C\+U\+L\+B\+P\+::loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_u_l_b_p_ad80ef6b32077a4aa067e0aa4f89cceae}{loop()}} just calls finished, becouse after one iteration over image is U\+L\+BP finished 
+
+=== Documentation from \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}}\+: === \mbox{\hyperlink{class_c_u_l_b_p_ad80ef6b32077a4aa067e0aa4f89cceae}{loop()}} provides \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} piece of information that one loop over the image has been finished
+
+is called in loop that is in \mbox{\hyperlink{class_c_process_handler}{C\+Process\+Handler}}. This loop calls processing of image or it\textquotesingle{}s part. 
+
+Implements \mbox{\hyperlink{class_c_algorithm_a6002853007641caeb58508123c6b555e}{C\+Algorithm}}.
+
+\mbox{\Hypertarget{class_c_u_l_b_p_a7aa6739ca041ca2151976835b2308100}\label{class_c_u_l_b_p_a7aa6739ca041ca2151976835b2308100}} 
+\index{CULBP@{CULBP}!process@{process}}
+\index{process@{process}!CULBP@{CULBP}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily void C\+U\+L\+B\+P\+::process (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{in\+Buf,  }\item[{unsigned char $\ast$}]{out\+Buf,  }\item[{int}]{out\+Width,  }\item[{int}]{out\+Height,  }\item[{int}]{channels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_u_l_b_p_a7aa6739ca041ca2151976835b2308100}{process()}} just passes parameters to private ulbp function 
+
+Computes classic L\+BP and then set non-\/uniforms to blue. Uniforms have combination of red and green.
+
+=== Documentation from \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}}\+: === \mbox{\hyperlink{class_c_u_l_b_p_a7aa6739ca041ca2151976835b2308100}{process()}} is method determined to run the main algorithm over the image
+
+Process method cant change number of channels between in\+Buf and out\+Buf.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in\+Buf} & pointer to input pixel array (2d array stored in 1d array) \\
+\hline
+\mbox{\texttt{ out}}  & {\em out\+Buf} & pointer to input pixel array (2d array stored in 1d array) \\
+\hline
+\mbox{\texttt{ in}}  & {\em out\+Width} & is width of output array(out\+Buf) \\
+\hline
+\mbox{\texttt{ in}}  & {\em out\+Height} & is width of output array(out\+Buf) \\
+\hline
+\mbox{\texttt{ in}}  & {\em channels} & number of channels per pixel of out\+Buf \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_c_algorithm_aa8eae924f8c5af0707addb4e39affe7d}{C\+Algorithm}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/\mbox{\hyperlink{_c_u_l_b_p_8hpp}{C\+U\+L\+B\+P.\+hpp}}\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/C\+U\+L\+B\+P.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,59 @@
+\hypertarget{class_c_process_handler}{}\doxysection{C\+Process\+Handler Class Reference}
+\label{class_c_process_handler}\index{CProcessHandler@{CProcessHandler}}
+
+
+\mbox{\hyperlink{class_c_process_handler}{C\+Process\+Handler}} is class handling communication between UI and algorithm classes.  
+
+
+
+
+{\ttfamily \#include $<$C\+Process\+Handler.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_process_handler_aef6d6ee76a197d14eac87f4a5a06fceb}{C\+Process\+Handler}} (Gimp\+Drawable $\ast$drawable, Gimp\+Preview $\ast$preview, \mbox{\hyperlink{struct_s_u_i_info}{S\+U\+I\+Info}} global)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_process_handler_aa36f5e9dac8298707b05a2456d36f9c8}{process}} (\mbox{\hyperlink{_e_l_b_p_type_8h_a6cb8b9dcd169837b3f657404e4601768}{E\+L\+B\+P\+Type}} method\+Type)
+\begin{DoxyCompactList}\small\item\em process is method that starts processing of image \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_c_process_handler}{C\+Process\+Handler}} is class handling communication between UI and algorithm classes. 
+
+It takes necessary information about chosen Algorithm method and parameters needed for running the algorithm. It also needs pointers to gimp drawable or preview.
+
+In init it initilizes parameters and input/output regions of image by calling gimp api functions In process it construct currently chosen \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} (in L\+BP it is a L\+BP method), then it inits and runs \mbox{\hyperlink{class_c_tile_manager_a1f8b597d4546b77689d49a404b1c2d3c}{C\+Tile\+Manager.\+run()}}. It runs C\+Tile\+Mananager in loop so many times as is return value of process\+Info.\+algorithm-\/$>$iterations\+Needed\+To\+Finish(). In the same loop should be called \mbox{\hyperlink{class_c_algorithm_a6002853007641caeb58508123c6b555e}{C\+Algorithm.\+loop()}} method. So the \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} implementation has information, that one iteration over image has been finished. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_process_handler_aef6d6ee76a197d14eac87f4a5a06fceb}\label{class_c_process_handler_aef6d6ee76a197d14eac87f4a5a06fceb}} 
+\index{CProcessHandler@{CProcessHandler}!CProcessHandler@{CProcessHandler}}
+\index{CProcessHandler@{CProcessHandler}!CProcessHandler@{CProcessHandler}}
+\doxysubsubsection{\texorpdfstring{CProcessHandler()}{CProcessHandler()}}
+{\footnotesize\ttfamily C\+Process\+Handler\+::\+C\+Process\+Handler (\begin{DoxyParamCaption}\item[{Gimp\+Drawable $\ast$}]{drawable,  }\item[{Gimp\+Preview $\ast$}]{preview,  }\item[{\mbox{\hyperlink{struct_s_u_i_info}{S\+U\+I\+Info}}}]{global }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+It initilizes parameters and input/output regions of image by calling gimp api functions.
+
+/param\mbox{[}in\mbox{]} drawable pointer to gimp drawable (canvas of image going to be processed) /param\mbox{[}in\mbox{]} preview preview in plugin UI -\/ preview is small result( image after process) preview /param\mbox{[}in\mbox{]} global UI global info, mainly pointers to UI widgets and Algorithm parameters 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_process_handler_aa36f5e9dac8298707b05a2456d36f9c8}\label{class_c_process_handler_aa36f5e9dac8298707b05a2456d36f9c8}} 
+\index{CProcessHandler@{CProcessHandler}!process@{process}}
+\index{process@{process}!CProcessHandler@{CProcessHandler}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily void C\+Process\+Handler\+::process (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{_e_l_b_p_type_8h_a6cb8b9dcd169837b3f657404e4601768}{E\+L\+B\+P\+Type}}}]{method\+Type }\end{DoxyParamCaption})}
+
+
+
+process is method that starts processing of image 
+
+It constructs currently chosen \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} (in L\+BP it is a L\+BP method), then it inits and runs \mbox{\hyperlink{class_c_tile_manager_a1f8b597d4546b77689d49a404b1c2d3c}{C\+Tile\+Manager.\+run()}}. It runs C\+Tile\+Mananager in loop so many times as is return value of process\+Info.\+algorithm-\/$>$iterations\+Needed\+To\+Finish(). In the same loop should be called \mbox{\hyperlink{class_c_algorithm_a6002853007641caeb58508123c6b555e}{C\+Algorithm.\+loop()}} method. So the \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} implementation has information, that one iteration over image has been finished. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/\mbox{\hyperlink{_c_process_handler_8hpp}{C\+Process\+Handler.\+hpp}}\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/C\+Process\+Handler.\+cpp\end{DoxyCompactItemize}

@@ -1,0 +1,25 @@
+var params_8h =
+[
+    [ "DEFAULT_POINTS", "params_8h.html#aadf1e731c4565f87c83ffb1ef11d661b", null ],
+    [ "DEFAULT_RADIUS", "params_8h.html#a61898968703d30b26a9462a7ac8faee3", null ],
+    [ "DEFAULT_TILE_SIZE", "params_8h.html#ab783c106e0e70157fad23c273b9f2056", null ],
+    [ "MAX_POINTS_CLBP", "params_8h.html#ae7a6f081f33a55ee3d9032d22c9749e8", null ],
+    [ "MAX_POINTS_LBP", "params_8h.html#a36d9d1ea56d3781fb89828ae55f702c0", null ],
+    [ "MAX_POINTS_MLBP", "params_8h.html#a4406c0024617eaadb385801f25ac514f", null ],
+    [ "MAX_POINTS_ULBP", "params_8h.html#a8f6e721393dc61ef0d3b9dc96f8e9e45", null ],
+    [ "MAX_RADIUS", "params_8h.html#a988fb91ad9b43c7c4f9a1486b1e4b17d", null ],
+    [ "MIN_POINTS", "params_8h.html#a08bfc431ccdc40b7c4dab75c289d1e4e", null ],
+    [ "MIN_RADIUS", "params_8h.html#ab3e2fa3cf5922a5459a3d52d4a6a5dc8", null ],
+    [ "sCLBP", "params_8h.html#a70cf0c4c7a40e91dd41f9201af8a80aa", null ],
+    [ "sCLBP_C", "params_8h.html#ad6f475d14a639225e51b12fdb82363f5", null ],
+    [ "sCLBP_M", "params_8h.html#ac65fda4bfaf84095251309fca82c209f", null ],
+    [ "sCLBP_S", "params_8h.html#adfc5af20b8e8a16a8a3b3b1579348f00", null ],
+    [ "sCLBP_SMC", "params_8h.html#ac3a59dc8c9dc212081856e131781aee7", null ],
+    [ "sLBP", "params_8h.html#a75ce2dc6144c84f85094a33048d1f6ee", null ],
+    [ "smLBP", "params_8h.html#a98b233da8760ed5cc9529f2470af39bc", null ],
+    [ "sMofifyParametsLabel", "params_8h.html#abc93f71827d7135cd99597c6dac99c2a", null ],
+    [ "sPickLBPMethodLabel", "params_8h.html#a4a4332775a7658fc56f22f581205db38", null ],
+    [ "sPointsLabel", "params_8h.html#a1967ee707748b90eba453db50a43d156", null ],
+    [ "sRadiusLabel", "params_8h.html#a79da931ebbe9953154f44dab520c42e1", null ],
+    [ "sULBP", "params_8h.html#ace78f3c4a208a572d4f235ce6489427a", null ]
+];

@@ -1,0 +1,259 @@
+\hypertarget{class_c_algorithm}{}\doxysection{C\+Algorithm Class Reference}
+\label{class_c_algorithm}\index{CAlgorithm@{CAlgorithm}}
+
+
+Interface(abstract class) for algorithms.  
+
+
+
+
+{\ttfamily \#include $<$C\+Algorithm.\+hpp$>$}
+
+Inheritance diagram for C\+Algorithm\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_c_algorithm}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_algorithm_ae6fbd19a6b99c0271fa101d765609753}{C\+Algorithm}} (\mbox{\hyperlink{struct_s_in_out_rgns}{S\+In\+Out\+Rgns}} to\+In\+Out)
+\begin{DoxyCompactList}\small\item\em Constructor, just initializes input output struct. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_algorithm_a49ad13f8c8e550ce901858fbb991e7e0}{preparation}} (unsigned char $\ast$in\+Buf, unsigned char $\ast$out\+Buf, unsigned int channels, int width, int height, int \&out\+Channels)=0
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_algorithm_a49ad13f8c8e550ce901858fbb991e7e0}{preparation()}} is method that prepares image data for later processing \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_algorithm_aa8eae924f8c5af0707addb4e39affe7d}{process}} (unsigned char $\ast$in\+Buf, unsigned char $\ast$out\+Buf, int out\+Width, int out\+Height, int channels)=0
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_algorithm_aa8eae924f8c5af0707addb4e39affe7d}{process()}} is method determined to run the main algorithm over the image \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_c_algorithm_aea9101601748e24139527c79453b0f21}{channels\+After\+Prep}} ()=0
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_algorithm_aea9101601748e24139527c79453b0f21}{channels\+After\+Prep()}} should return number of channels after preparation \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_c_algorithm_a3f604e5039225314123bd3d008c68b53}{iterations\+Needed\+To\+Finish}} ()=0
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_algorithm_a3f604e5039225314123bd3d008c68b53}{iterations\+Needed\+To\+Finish()}} returns number of iterations over image needed to complete process \end{DoxyCompactList}\item 
+virtual int \mbox{\hyperlink{class_c_algorithm_a615b2dd848ecfeb50ef97daec616373e}{size\+Of\+Tile\+Borders}} ()=0
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_algorithm_a615b2dd848ecfeb50ef97daec616373e}{size\+Of\+Tile\+Borders()}} returns size of neighbourhood (radius) in pixels that is needed to calculate value of one pixel(or area) \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{class_c_algorithm_a73a168113d4cf2aeba1bd738cc931a6f}{is\+Finished}} ()=0
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_algorithm_a73a168113d4cf2aeba1bd738cc931a6f}{is\+Finished()}} return true if is process finished and output is done, otherwise returns true \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_algorithm_a6002853007641caeb58508123c6b555e}{loop}} ()=0
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_algorithm_a6002853007641caeb58508123c6b555e}{loop()}} provides \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} piece of information that one loop over the image has been finished \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_algorithm_aa747417a3863ee08fc1da36ebf2bd26b}{in}} (guchar $\ast$\&load\+Buffer, int in\+X0, int in\+Y0, int load\+Width, int load\+Height)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_algorithm_aa747417a3863ee08fc1da36ebf2bd26b}{in()}} is method that loads data of image \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{class_c_algorithm_a28ea40b9c890918c29fb553785094736}{out}} (guchar $\ast$out\+Buffer, int out\+X0, int out\+Y0, int width, int height)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_algorithm_a28ea40b9c890918c29fb553785094736}{out()}}) is method that sends out data of processed image \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_c_algorithm_a39f18eeb8585ed68d89888ef8b576e6a}\label{class_c_algorithm_a39f18eeb8585ed68d89888ef8b576e6a}} 
+\mbox{\hyperlink{struct_s_in_out_rgns}{S\+In\+Out\+Rgns}} \mbox{\hyperlink{class_c_algorithm_a39f18eeb8585ed68d89888ef8b576e6a}{in\+Out}}
+\begin{DoxyCompactList}\small\item\em struct holding pointers to in and out regions (gimp\+\_\+pixel\+\_\+rgn) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Interface(abstract class) for algorithms. 
+
+This abstract class provides an interface for algorithms used in plugin . Methods of this class are called in plugin classes methods\+: \mbox{\hyperlink{class_c_tile_a78ff6f6196e6ebbc3be8ea83a95b26b9}{C\+Tile\+::\+Load\+And\+Process\+Tile}} and \mbox{\hyperlink{class_c_process_handler_aa36f5e9dac8298707b05a2456d36f9c8}{C\+Process\+Handler\+::process}} Its easy to add another algorithms using this interface. But it may be necessary to change UI and functions handling UI.
+
+Its not recommended to allocate or dealocate memory inside implementation of this interface, if not necessary ofcourse, becouse methods that are calling methods of this interface are checking memory allocation for you. I\+N\+B\+U\+F\+F\+E\+RS A\+ND O\+U\+T\+B\+U\+F\+F\+E\+RS A\+RE A\+L\+R\+E\+A\+DY A\+L\+L\+O\+C\+A\+T\+ED IN R\+I\+G\+HT S\+I\+ZE 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_algorithm_ae6fbd19a6b99c0271fa101d765609753}\label{class_c_algorithm_ae6fbd19a6b99c0271fa101d765609753}} 
+\index{CAlgorithm@{CAlgorithm}!CAlgorithm@{CAlgorithm}}
+\index{CAlgorithm@{CAlgorithm}!CAlgorithm@{CAlgorithm}}
+\doxysubsubsection{\texorpdfstring{CAlgorithm()}{CAlgorithm()}}
+{\footnotesize\ttfamily C\+Algorithm\+::\+C\+Algorithm (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_s_in_out_rgns}{S\+In\+Out\+Rgns}}}]{to\+In\+Out }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor, just initializes input output struct. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em to\+In\+Out} & struct holding pointers to in and out regions (gimp\+\_\+pixel\+\_\+rgn), there is needed for pixels input and output \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_algorithm_aea9101601748e24139527c79453b0f21}\label{class_c_algorithm_aea9101601748e24139527c79453b0f21}} 
+\index{CAlgorithm@{CAlgorithm}!channelsAfterPrep@{channelsAfterPrep}}
+\index{channelsAfterPrep@{channelsAfterPrep}!CAlgorithm@{CAlgorithm}}
+\doxysubsubsection{\texorpdfstring{channelsAfterPrep()}{channelsAfterPrep()}}
+{\footnotesize\ttfamily virtual int C\+Algorithm\+::channels\+After\+Prep (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_algorithm_aea9101601748e24139527c79453b0f21}{channels\+After\+Prep()}} should return number of channels after preparation 
+
+P\+U\+RE V\+I\+R\+T\+U\+AL, must be implemented 
+
+Implemented in \mbox{\hyperlink{class_c_abstract_l_b_p_ac0514330d0a583d08f47bb22a3b31424}{C\+Abstract\+L\+BP}}.
+
+\mbox{\Hypertarget{class_c_algorithm_aa747417a3863ee08fc1da36ebf2bd26b}\label{class_c_algorithm_aa747417a3863ee08fc1da36ebf2bd26b}} 
+\index{CAlgorithm@{CAlgorithm}!in@{in}}
+\index{in@{in}!CAlgorithm@{CAlgorithm}}
+\doxysubsubsection{\texorpdfstring{in()}{in()}}
+{\footnotesize\ttfamily virtual void C\+Algorithm\+::in (\begin{DoxyParamCaption}\item[{guchar $\ast$\&}]{load\+Buffer,  }\item[{int}]{in\+X0,  }\item[{int}]{in\+Y0,  }\item[{int}]{load\+Width,  }\item[{int}]{load\+Height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_algorithm_aa747417a3863ee08fc1da36ebf2bd26b}{in()}} is method that loads data of image 
+
+Probably most implementations would use this implementation, but it can be override. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em load\+Buffer} & pointer to buffer in which will be stored data of loaded part of image \\
+\hline
+\mbox{\texttt{ in}}  & {\em in\+X0} & start (left upper corner of image) x coordinate of part of image which is going to be loaded \\
+\hline
+\mbox{\texttt{ in}}  & {\em in\+Y0} & start (left upper corner of image) y coordinate of part of image which is going to be loaded \\
+\hline
+\mbox{\texttt{ in}}  & {\em load\+Width} & width of part of image which is going to be loaded \\
+\hline
+\mbox{\texttt{ in}}  & {\em load\+Height} & height of part of image which is going to be loaded \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_c_algorithm_a73a168113d4cf2aeba1bd738cc931a6f}\label{class_c_algorithm_a73a168113d4cf2aeba1bd738cc931a6f}} 
+\index{CAlgorithm@{CAlgorithm}!isFinished@{isFinished}}
+\index{isFinished@{isFinished}!CAlgorithm@{CAlgorithm}}
+\doxysubsubsection{\texorpdfstring{isFinished()}{isFinished()}}
+{\footnotesize\ttfamily virtual bool C\+Algorithm\+::is\+Finished (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_algorithm_a73a168113d4cf2aeba1bd738cc931a6f}{is\+Finished()}} return true if is process finished and output is done, otherwise returns true 
+
+P\+U\+RE V\+I\+R\+T\+U\+AL, must be implemented 
+
+Implemented in \mbox{\hyperlink{class_c_c_l_b_p_a80a75b4cf56e46b7e11d999bce475aa9}{C\+C\+L\+BP}}, \mbox{\hyperlink{class_c_u_l_b_p_aa79c54687fc9d8c0db5abd239fca3357}{C\+U\+L\+BP}}, \mbox{\hyperlink{class_c_l_b_p_aefd1320b0c435de1681dd4a5867460c0}{C\+L\+BP}}, and \mbox{\hyperlink{class_c_m_l_b_p_a70799b88567a052574f1efd265454407}{C\+M\+L\+BP}}.
+
+\mbox{\Hypertarget{class_c_algorithm_a3f604e5039225314123bd3d008c68b53}\label{class_c_algorithm_a3f604e5039225314123bd3d008c68b53}} 
+\index{CAlgorithm@{CAlgorithm}!iterationsNeededToFinish@{iterationsNeededToFinish}}
+\index{iterationsNeededToFinish@{iterationsNeededToFinish}!CAlgorithm@{CAlgorithm}}
+\doxysubsubsection{\texorpdfstring{iterationsNeededToFinish()}{iterationsNeededToFinish()}}
+{\footnotesize\ttfamily virtual int C\+Algorithm\+::iterations\+Needed\+To\+Finish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_algorithm_a3f604e5039225314123bd3d008c68b53}{iterations\+Needed\+To\+Finish()}} returns number of iterations over image needed to complete process 
+
+P\+U\+RE V\+I\+R\+T\+U\+AL, must be implemented 
+
+Implemented in \mbox{\hyperlink{class_c_abstract_l_b_p_a193f8a993aff23c310964dd7da7ecc0b}{C\+Abstract\+L\+BP}}.
+
+\mbox{\Hypertarget{class_c_algorithm_a6002853007641caeb58508123c6b555e}\label{class_c_algorithm_a6002853007641caeb58508123c6b555e}} 
+\index{CAlgorithm@{CAlgorithm}!loop@{loop}}
+\index{loop@{loop}!CAlgorithm@{CAlgorithm}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily virtual void C\+Algorithm\+::loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_algorithm_a6002853007641caeb58508123c6b555e}{loop()}} provides \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} piece of information that one loop over the image has been finished 
+
+P\+U\+RE V\+I\+R\+T\+U\+AL, must be implemented is called in loop that is in \mbox{\hyperlink{class_c_process_handler}{C\+Process\+Handler}}. This loop calls processing of image or it\textquotesingle{}s part. 
+
+Implemented in \mbox{\hyperlink{class_c_c_l_b_p_a99a8f943724c12d18b2fbe9abdd405d2}{C\+C\+L\+BP}}, \mbox{\hyperlink{class_c_u_l_b_p_ad80ef6b32077a4aa067e0aa4f89cceae}{C\+U\+L\+BP}}, \mbox{\hyperlink{class_c_l_b_p_ac78748d2673492c0d4095e8f59556bbf}{C\+L\+BP}}, and \mbox{\hyperlink{class_c_m_l_b_p_a7ebb8fc306043d498e84ea57343a10c1}{C\+M\+L\+BP}}.
+
+\mbox{\Hypertarget{class_c_algorithm_a28ea40b9c890918c29fb553785094736}\label{class_c_algorithm_a28ea40b9c890918c29fb553785094736}} 
+\index{CAlgorithm@{CAlgorithm}!out@{out}}
+\index{out@{out}!CAlgorithm@{CAlgorithm}}
+\doxysubsubsection{\texorpdfstring{out()}{out()}}
+{\footnotesize\ttfamily virtual void C\+Algorithm\+::out (\begin{DoxyParamCaption}\item[{guchar $\ast$}]{out\+Buffer,  }\item[{int}]{out\+X0,  }\item[{int}]{out\+Y0,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_algorithm_a28ea40b9c890918c29fb553785094736}{out()}}) is method that sends out data of processed image 
+
+Probably most implementations would use this implementation, but it can be override 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em out\+Buffer} & pointer to data buffer of processed part of image which is going to be send out \\
+\hline
+\mbox{\texttt{ in}}  & {\em in\+X0} & start (left upper corner of image) x coordinate of part of image which is going to be send out \\
+\hline
+\mbox{\texttt{ in}}  & {\em in\+Y0} & start (left upper corner of image) y coordinate of part of image which is going to be send out \\
+\hline
+\mbox{\texttt{ in}}  & {\em load\+Width} & width of part of image which is going to be send out \\
+\hline
+\mbox{\texttt{ in}}  & {\em load\+Height} & height of part of image which is going to be send out \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented in \mbox{\hyperlink{class_c_c_l_b_p_a66268fd6592f958171f2b90ed93f37cf}{C\+C\+L\+BP}}.
+
+\mbox{\Hypertarget{class_c_algorithm_a49ad13f8c8e550ce901858fbb991e7e0}\label{class_c_algorithm_a49ad13f8c8e550ce901858fbb991e7e0}} 
+\index{CAlgorithm@{CAlgorithm}!preparation@{preparation}}
+\index{preparation@{preparation}!CAlgorithm@{CAlgorithm}}
+\doxysubsubsection{\texorpdfstring{preparation()}{preparation()}}
+{\footnotesize\ttfamily virtual void C\+Algorithm\+::preparation (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{in\+Buf,  }\item[{unsigned char $\ast$}]{out\+Buf,  }\item[{unsigned int}]{channels,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int \&}]{out\+Channels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_algorithm_a49ad13f8c8e550ce901858fbb991e7e0}{preparation()}} is method that prepares image data for later processing 
+
+P\+U\+RE V\+I\+R\+T\+U\+AL, must be implemented Advantage of using this method instead of using only \mbox{\hyperlink{class_c_algorithm_aa8eae924f8c5af0707addb4e39affe7d}{process()}} method is that preparation algorithm can change number of channels per pixel. So, algorithm can change number of channels per pixels without allocation in algorithm.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in\+Buf} & pointer to input pixel array (2d array stored in 1d array) \\
+\hline
+\mbox{\texttt{ out}}  & {\em out\+Buf} & pointer to output pixel array (2d array stored in 1d array) \\
+\hline
+\mbox{\texttt{ in}}  & {\em channels} & number of channels per pixel of in\+Buf \\
+\hline
+\mbox{\texttt{ in}}  & {\em width} & width of 2d array stored in in\+Buf \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & height of 2d array stored in in\+Buf \\
+\hline
+\mbox{\texttt{ out}}  & {\em out\+Channels} & number of channels per pixel of out\+Buf \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_c_abstract_l_b_p_ab050fee7f9743eba2a846e8e4d4b846b}{C\+Abstract\+L\+BP}}.
+
+\mbox{\Hypertarget{class_c_algorithm_aa8eae924f8c5af0707addb4e39affe7d}\label{class_c_algorithm_aa8eae924f8c5af0707addb4e39affe7d}} 
+\index{CAlgorithm@{CAlgorithm}!process@{process}}
+\index{process@{process}!CAlgorithm@{CAlgorithm}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily virtual void C\+Algorithm\+::process (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{in\+Buf,  }\item[{unsigned char $\ast$}]{out\+Buf,  }\item[{int}]{out\+Width,  }\item[{int}]{out\+Height,  }\item[{int}]{channels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_algorithm_aa8eae924f8c5af0707addb4e39affe7d}{process()}} is method determined to run the main algorithm over the image 
+
+P\+U\+RE V\+I\+R\+T\+U\+AL, must be implemented Process method cant change number of channels between in\+Buf and out\+Buf.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in\+Buf} & pointer to input pixel array (2d array stored in 1d array) \\
+\hline
+\mbox{\texttt{ out}}  & {\em out\+Buf} & pointer to input pixel array (2d array stored in 1d array) \\
+\hline
+\mbox{\texttt{ in}}  & {\em out\+Width} & is width of output array(out\+Buf) \\
+\hline
+\mbox{\texttt{ in}}  & {\em out\+Height} & is width of output array(out\+Buf) \\
+\hline
+\mbox{\texttt{ in}}  & {\em channels} & number of channels per pixel of out\+Buf \\
+\hline
+\end{DoxyParams}
+
+
+Implemented in \mbox{\hyperlink{class_c_c_l_b_p_a49d836745731af82d06dd0a948d9a150}{C\+C\+L\+BP}}, \mbox{\hyperlink{class_c_u_l_b_p_a7aa6739ca041ca2151976835b2308100}{C\+U\+L\+BP}}, \mbox{\hyperlink{class_c_l_b_p_af268a23875c16a83bc965b3bb460e275}{C\+L\+BP}}, and \mbox{\hyperlink{class_c_m_l_b_p_af4065ec38f75115722f9de617551d409}{C\+M\+L\+BP}}.
+
+\mbox{\Hypertarget{class_c_algorithm_a615b2dd848ecfeb50ef97daec616373e}\label{class_c_algorithm_a615b2dd848ecfeb50ef97daec616373e}} 
+\index{CAlgorithm@{CAlgorithm}!sizeOfTileBorders@{sizeOfTileBorders}}
+\index{sizeOfTileBorders@{sizeOfTileBorders}!CAlgorithm@{CAlgorithm}}
+\doxysubsubsection{\texorpdfstring{sizeOfTileBorders()}{sizeOfTileBorders()}}
+{\footnotesize\ttfamily virtual int C\+Algorithm\+::size\+Of\+Tile\+Borders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_algorithm_a615b2dd848ecfeb50ef97daec616373e}{size\+Of\+Tile\+Borders()}} returns size of neighbourhood (radius) in pixels that is needed to calculate value of one pixel(or area) 
+
+P\+U\+RE V\+I\+R\+T\+U\+AL, must be implemented 
+
+Implemented in \mbox{\hyperlink{class_c_abstract_l_b_p_a398354741278bb57371882c5f664d3ac}{C\+Abstract\+L\+BP}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/\mbox{\hyperlink{_c_algorithm_8hpp}{C\+Algorithm.\+hpp}}\end{DoxyCompactItemize}

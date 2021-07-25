@@ -1,0 +1,83 @@
+\hypertarget{class_c_tile_manager}{}\doxysection{C\+Tile\+Manager Class Reference}
+\label{class_c_tile_manager}\index{CTileManager@{CTileManager}}
+
+
+\mbox{\hyperlink{class_c_tile_manager}{C\+Tile\+Manager}} is class that divides image to tiles and then manages these tiles.  
+
+
+
+
+{\ttfamily \#include $<$C\+Tile\+Manager.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_tile_manager_a3758cd540727b453f33ca588b5eb3c62}{C\+Tile\+Manager}} (int img\+Width, int img\+Height, int in\+X0, int in\+Y0, int tile\+Border\+Radius)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_tile_manager_a1f8b597d4546b77689d49a404b1c2d3c}{run}} (\mbox{\hyperlink{struct_s_process_info}{S\+Process\+Info}} \&process\+Info, int iteration, int iteration\+Count)
+\begin{DoxyCompactList}\small\item\em run (itarates over image) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_c_tile_manager}{C\+Tile\+Manager}} is class that divides image to tiles and then manages these tiles. 
+
+Proper use is call at first \mbox{\hyperlink{class_c_tile_manager}{C\+Tile\+Manager}} init and then call run
+
+\char`\"{}\+Borders\char`\"{} in documantation meens this\+: Some algorithms need their neigboorhood (radius) so the tiles must be bigger then the processing area. Then the tile need not processed borders which contains pixels from neighbour tiles or if its not possible those borders are mirrod from edges of the tile. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_tile_manager_a3758cd540727b453f33ca588b5eb3c62}\label{class_c_tile_manager_a3758cd540727b453f33ca588b5eb3c62}} 
+\index{CTileManager@{CTileManager}!CTileManager@{CTileManager}}
+\index{CTileManager@{CTileManager}!CTileManager@{CTileManager}}
+\doxysubsubsection{\texorpdfstring{CTileManager()}{CTileManager()}}
+{\footnotesize\ttfamily C\+Tile\+Manager\+::\+C\+Tile\+Manager (\begin{DoxyParamCaption}\item[{int}]{img\+Width,  }\item[{int}]{img\+Height,  }\item[{int}]{in\+X0,  }\item[{int}]{in\+Y0,  }\item[{int}]{tile\+Border\+Radius }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Initialization of manger. Numbers of tiles per width and height are calculated and default size which will be used of tile is calculated also.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em img\+Width} & width of part of image which is going to be processed (Part of image may be whole image) \\
+\hline
+\mbox{\texttt{ in}}  & {\em img\+Height} & height of part of image which is going to be processed (Part of image may be whole image) \\
+\hline
+\mbox{\texttt{ in}}  & {\em in\+X0} & start (left upper corner of image) x coordinate of part of image which is going to be processed \\
+\hline
+\mbox{\texttt{ in}}  & {\em in\+Y0} & start (left upper corner of image) y coordinate of part of image which is going to be processed \\
+\hline
+\mbox{\texttt{ in}}  & {\em tile\+Border\+Radius} & size of borders (radius) of tiles in pixels \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_tile_manager_a1f8b597d4546b77689d49a404b1c2d3c}\label{class_c_tile_manager_a1f8b597d4546b77689d49a404b1c2d3c}} 
+\index{CTileManager@{CTileManager}!run@{run}}
+\index{run@{run}!CTileManager@{CTileManager}}
+\doxysubsubsection{\texorpdfstring{run()}{run()}}
+{\footnotesize\ttfamily void C\+Tile\+Manager\+::run (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_s_process_info}{S\+Process\+Info}} \&}]{process\+Info,  }\item[{int}]{iteration,  }\item[{int}]{iteration\+Count }\end{DoxyParamCaption})}
+
+
+
+run (itarates over image) 
+
+Method run iterates over image and processes (initializes C\+Tiles and calls load and process tile method) the image by currenttly used \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} implementation.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em process\+Info} & contains info about count of channels and pointer to \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} implemenation. \\
+\hline
+\mbox{\texttt{ in}}  & {\em iteration} & current iteration \\
+\hline
+\mbox{\texttt{ in}}  & {\em iteration\+Count} & total number of iterations (some algorithms need more then one iteration over image) \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/\mbox{\hyperlink{_c_tile_manager_8hpp}{C\+Tile\+Manager.\+hpp}}\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/C\+Tile\+Manager.\+cpp\end{DoxyCompactItemize}

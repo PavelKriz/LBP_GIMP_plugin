@@ -1,0 +1,42 @@
+\hypertarget{struct_c_abstract_l_b_p_1_1_s_points_loc_coords}{}\doxysection{C\+Abstract\+L\+BP\+::S\+Points\+Loc\+Coords Struct Reference}
+\label{struct_c_abstract_l_b_p_1_1_s_points_loc_coords}\index{CAbstractLBP::SPointsLocCoords@{CAbstractLBP::SPointsLocCoords}}
+
+
+$<$ Representation of neighbor point  
+
+
+
+
+{\ttfamily \#include $<$C\+Abstract\+L\+B\+P.\+hpp$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_a3d6a4c06bfc02fc7b0fe2f512c0474d3}\label{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_a3d6a4c06bfc02fc7b0fe2f512c0474d3}} 
+int \mbox{\hyperlink{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_a3d6a4c06bfc02fc7b0fe2f512c0474d3}{fx}}
+\begin{DoxyCompactList}\small\item\em x coordinate for first pixel \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_aa6575ccc5708a4bf25ecf529413afb10}\label{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_aa6575ccc5708a4bf25ecf529413afb10}} 
+int \mbox{\hyperlink{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_aa6575ccc5708a4bf25ecf529413afb10}{fy}}
+\begin{DoxyCompactList}\small\item\em y coordinate for first pixel \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_a982924e46198432a2ede964c633a0b04}\label{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_a982924e46198432a2ede964c633a0b04}} 
+int \mbox{\hyperlink{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_a982924e46198432a2ede964c633a0b04}{sx}}
+\begin{DoxyCompactList}\small\item\em x coordinate for second pixel \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_a992a677687b2c45c98577d24fde2f097}\label{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_a992a677687b2c45c98577d24fde2f097}} 
+int \mbox{\hyperlink{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_a992a677687b2c45c98577d24fde2f097}{sy}}
+\begin{DoxyCompactList}\small\item\em y coordinate for second pixel \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_ae476b05fe85a81409e29f108e8523777}\label{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_ae476b05fe85a81409e29f108e8523777}} 
+float \mbox{\hyperlink{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_ae476b05fe85a81409e29f108e8523777}{f\+Weight}}
+\begin{DoxyCompactList}\small\item\em weight of first point \mbox{[}0,1\mbox{]} \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_ad14554544434a5b772250e6f2700f866}\label{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_ad14554544434a5b772250e6f2700f866}} 
+float \mbox{\hyperlink{struct_c_abstract_l_b_p_1_1_s_points_loc_coords_ad14554544434a5b772250e6f2700f866}{s\+Weight}}
+\begin{DoxyCompactList}\small\item\em weight of second point \mbox{[}0,1\mbox{]} \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+$<$ Representation of neighbor point 
+
+Every point is for higher accuracy defined by two pixels and weight -\/ one point may be also determined only by one pixel and weight 1 If is point represented by one pixel then fx==sx and fy==sy and f\+Weight==s\+Weight==0.\+5 fweight must be qual to 1-\/sweight everytime 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/\mbox{\hyperlink{_c_abstract_l_b_p_8hpp}{C\+Abstract\+L\+B\+P.\+hpp}}\end{DoxyCompactItemize}

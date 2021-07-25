@@ -1,0 +1,113 @@
+\hypertarget{class_c_tile}{}\doxysection{C\+Tile Class Reference}
+\label{class_c_tile}\index{CTile@{CTile}}
+
+
+Class that represent and process image tile.  
+
+
+
+
+{\ttfamily \#include $<$C\+Tile.\+hpp$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_tile_a27499a9ccbf1905696668a7a8e36ebaf}{C\+Tile}} (int it, int jt, int x1, int y1, int tile\+Width, int tile\+Height, int tile\+Count\+Width, int tile\+Count\+Height, int tile\+Border\+Radius, int default\+Tile\+Size)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_c_tile_af39d686d1a04281c747c15537fa74b4c}\label{class_c_tile_af39d686d1a04281c747c15537fa74b4c}} 
+int {\bfseries get\+Img\+Load\+Tile\+Width} ()
+\item 
+\mbox{\Hypertarget{class_c_tile_ad7e4b156e033a7ed8dbc930a2cb4790b}\label{class_c_tile_ad7e4b156e033a7ed8dbc930a2cb4790b}} 
+int {\bfseries get\+Img\+Load\+Tile\+Height} ()
+\item 
+\mbox{\Hypertarget{class_c_tile_a2dafb77d0cc7fc4699de55d256adf47a}\label{class_c_tile_a2dafb77d0cc7fc4699de55d256adf47a}} 
+int {\bfseries get\+Tile\+Width} ()
+\item 
+\mbox{\Hypertarget{class_c_tile_a7a4022121b32a2c582f3e00b2f50b9eb}\label{class_c_tile_a7a4022121b32a2c582f3e00b2f50b9eb}} 
+int {\bfseries get\+Tile\+Height} ()
+\item 
+\mbox{\Hypertarget{class_c_tile_a5e9eec4c388723b1f5e641b91e743317}\label{class_c_tile_a5e9eec4c388723b1f5e641b91e743317}} 
+int {\bfseries get\+In\+X0} ()
+\item 
+\mbox{\Hypertarget{class_c_tile_a2e403645e8b91c175010e3d6fd277a03}\label{class_c_tile_a2e403645e8b91c175010e3d6fd277a03}} 
+int {\bfseries get\+In\+Y0} ()
+\item 
+\mbox{\Hypertarget{class_c_tile_a78f4e18041268e8dd56b6b745a3e7edb}\label{class_c_tile_a78f4e18041268e8dd56b6b745a3e7edb}} 
+int {\bfseries get\+Out\+X0} ()
+\item 
+\mbox{\Hypertarget{class_c_tile_accc81a716aa68d3b0f6409d4bedb1c85}\label{class_c_tile_accc81a716aa68d3b0f6409d4bedb1c85}} 
+int {\bfseries get\+Out\+Y0} ()
+\item 
+void \mbox{\hyperlink{class_c_tile_a78ff6f6196e6ebbc3be8ea83a95b26b9}{Load\+And\+Process\+Tile}} (\mbox{\hyperlink{struct_s_process_info}{S\+Process\+Info}} \&process\+Info)
+\begin{DoxyCompactList}\small\item\em Load\+And\+Process\+Tile. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that represent and process image tile. 
+
+Helps manage processing tile. Proper use is call at first \mbox{\hyperlink{class_c_tile}{C\+Tile}} init and then call Load\+And\+Process\+Tile
+
+\char`\"{}\+Borders\char`\"{} in documantation meens this\+: Some algorithms need their neigboorhood (radius) so the tile must be bigger then the processing area. Then the tile need not processed borders which contains pixels from neighbour tiles or if its not possible those borders are mirrod from edges of the tile. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_tile_a27499a9ccbf1905696668a7a8e36ebaf}\label{class_c_tile_a27499a9ccbf1905696668a7a8e36ebaf}} 
+\index{CTile@{CTile}!CTile@{CTile}}
+\index{CTile@{CTile}!CTile@{CTile}}
+\doxysubsubsection{\texorpdfstring{CTile()}{CTile()}}
+{\footnotesize\ttfamily C\+Tile\+::\+C\+Tile (\begin{DoxyParamCaption}\item[{int}]{it,  }\item[{int}]{jt,  }\item[{int}]{x1,  }\item[{int}]{y1,  }\item[{int}]{tile\+Width,  }\item[{int}]{tile\+Height,  }\item[{int}]{tile\+Count\+Width,  }\item[{int}]{tile\+Count\+Height,  }\item[{int}]{tile\+Border\+Radius,  }\item[{int}]{default\+Tile\+Size }\end{DoxyParamCaption})}
+
+
+
+Constructor. 
+
+Constructs \mbox{\hyperlink{class_c_tile}{C\+Tile}} with correct parameters for loading image and later possible mirroring of tile.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em it} & Y(height) order of this tile in tile grid (for cyclus in \mbox{\hyperlink{class_c_tile_manager}{C\+Tile\+Manager}}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em jt} & X(width) order of this tile in tile grid (for cyclus in \mbox{\hyperlink{class_c_tile_manager}{C\+Tile\+Manager}}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em x1} & zeroX (startX) in image \\
+\hline
+\mbox{\texttt{ in}}  & {\em y1} & zeroY (startY) in image \\
+\hline
+\mbox{\texttt{ in}}  & {\em tile\+Width} & tile width that doesnt inlcude radius \\
+\hline
+\mbox{\texttt{ in}}  & {\em tile\+Height} & tile height that doesnt inlcude radius \\
+\hline
+\mbox{\texttt{ in}}  & {\em tile\+Count\+Width} & Info about count of tiles per width in tile grid (for cyclus in \mbox{\hyperlink{class_c_tile_manager}{C\+Tile\+Manager}}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em tile\+Count\+Height} & Info about count of tiles per height in tile grid (for cyclus in \mbox{\hyperlink{class_c_tile_manager}{C\+Tile\+Manager}}) \\
+\hline
+\mbox{\texttt{ in}}  & {\em tile\+Border\+Radius} & size of borders (radius) in pixels \\
+\hline
+\mbox{\texttt{ in}}  & {\em default\+Tile\+Size} & original size(square edge size) of tile without borders and without deforming (in edge cases tiles cannot be squares) \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_tile_a78ff6f6196e6ebbc3be8ea83a95b26b9}\label{class_c_tile_a78ff6f6196e6ebbc3be8ea83a95b26b9}} 
+\index{CTile@{CTile}!LoadAndProcessTile@{LoadAndProcessTile}}
+\index{LoadAndProcessTile@{LoadAndProcessTile}!CTile@{CTile}}
+\doxysubsubsection{\texorpdfstring{LoadAndProcessTile()}{LoadAndProcessTile()}}
+{\footnotesize\ttfamily void C\+Tile\+::\+Load\+And\+Process\+Tile (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_s_process_info}{S\+Process\+Info}} \&}]{process\+Info }\end{DoxyParamCaption})}
+
+
+
+Load\+And\+Process\+Tile. 
+
+It uses methods provides by \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} implementation. By these methods it provide allocation of memory for these methods and order of running of these methods
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em process\+Info} & contains info about number of channels per pixel and pointer to \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} implemenation. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/\mbox{\hyperlink{_c_tile_8hpp}{C\+Tile.\+hpp}}\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/C\+Tile.\+cpp\end{DoxyCompactItemize}

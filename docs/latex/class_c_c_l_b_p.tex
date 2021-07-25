@@ -1,0 +1,179 @@
+\hypertarget{class_c_c_l_b_p}{}\doxysection{C\+C\+L\+BP Class Reference}
+\label{class_c_c_l_b_p}\index{CCLBP@{CCLBP}}
+
+
+\mbox{\hyperlink{class_c_c_l_b_p}{C\+C\+L\+BP}} is class that provides implementation of improved L\+BP method.  
+
+
+
+
+{\ttfamily \#include $<$C\+C\+L\+B\+P.\+hpp$>$}
+
+Inheritance diagram for C\+C\+L\+BP\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_c_c_l_b_p}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_c_c_l_b_p_ac3590a658055c1ed264e4c85dea6db41}\label{class_c_c_l_b_p_ac3590a658055c1ed264e4c85dea6db41}} 
+enum \mbox{\hyperlink{class_c_c_l_b_p_ac3590a658055c1ed264e4c85dea6db41}{E\+C\+L\+B\+P\+Type}} \{ {\bfseries E\+C\+L\+B\+P\+\_\+\+S\+MC}, 
+{\bfseries E\+C\+L\+B\+P\+\_\+S}, 
+{\bfseries E\+C\+L\+B\+P\+\_\+M}, 
+{\bfseries E\+C\+L\+B\+P\+\_\+C}
+ \}
+\begin{DoxyCompactList}\small\item\em Enum that provide information about output. If the whole \mbox{\hyperlink{class_c_l_b_p}{C\+L\+BP}} will be show or only its parts. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_c_l_b_p_a7c0282386b0ae630d0bb06ba48253d72}{C\+C\+L\+BP}} (\mbox{\hyperlink{struct_s_in_out_rgns}{S\+In\+Out\+Rgns}} to\+In\+Out, int to\+Radius, int to\+Neighbour\+Points\+Count, \mbox{\hyperlink{class_c_c_l_b_p_ac3590a658055c1ed264e4c85dea6db41}{E\+C\+L\+B\+P\+Type}} to\+Clbp\+Type)
+\begin{DoxyCompactList}\small\item\em Constructor calls its parents constructor and sets inner state and what its important it changes iterations\+Needed\+To\+Finish\+Val to 2. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_c_l_b_p_a49d836745731af82d06dd0a948d9a150}{process}} (unsigned char $\ast$in\+Buf, unsigned char $\ast$out\+Buf, int out\+Width, int out\+Height, int channels) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_c_l_b_p_a49d836745731af82d06dd0a948d9a150}{process()}} just passes parameters to other private functions \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_c_l_b_p_a66268fd6592f958171f2b90ed93f37cf}{out}} (guchar $\ast$out\+Buffer, int out\+X0, int out\+Y0, int width, int height) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_c_l_b_p_a66268fd6592f958171f2b90ed93f37cf}{out()}}) is method that sends out data of processed image \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_c_c_l_b_p_a80a75b4cf56e46b7e11d999bce475aa9}{is\+Finished}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_c_l_b_p_a80a75b4cf56e46b7e11d999bce475aa9}{is\+Finished()}} returns ture if is inner state set to finished, otherwise false \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_c_l_b_p_a99a8f943724c12d18b2fbe9abdd405d2}{loop}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_c_l_b_p_a99a8f943724c12d18b2fbe9abdd405d2}{loop()}} calls next\+State(), becouse after two iterations over image is \mbox{\hyperlink{class_c_l_b_p}{C\+L\+BP}} finished \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_c_c_l_b_p}{C\+C\+L\+BP}} is class that provides implementation of improved L\+BP method. 
+
+in \mbox{\hyperlink{class_c_l_b_p}{C\+L\+B\+P(completed L\+B\+P)}} are computed three parts(\+S,\+M,\+C)\+:
+
+S(classic L\+B\+P) -\/ for( all neigbour\+Points)\{ S $\vert$= (neigbour\+Point\+\_\+k $>$= mean\+Mp\+Value.\+first) $<$$<$ k\}
+
+M(magnitude -\/ like L\+BP but for every neighbor point looks calculation this\+: for( all neigbour\+Points)\{ M $\vert$= (magnitude\+\_\+k $>$= MM) $<$$<$ k\} \begin{DoxyVerb} MM - means mean magnitude of whole image, magnitude_k = |neigbourPoint_k - center|
+\end{DoxyVerb}
+
+
+C(\+L\+B\+P but on place of center is there mean gray value of whole image (\+C\+I) )\+: for( all neigbour\+Points)\{ C $\vert$= (neigbour\+Point\+\_\+k $>$= CI) $<$$<$ k\}
+
+its recommended to take a closer look on this method first somewhere else, becouse its more complicated then other L\+BP methods 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_c_l_b_p_a7c0282386b0ae630d0bb06ba48253d72}\label{class_c_c_l_b_p_a7c0282386b0ae630d0bb06ba48253d72}} 
+\index{CCLBP@{CCLBP}!CCLBP@{CCLBP}}
+\index{CCLBP@{CCLBP}!CCLBP@{CCLBP}}
+\doxysubsubsection{\texorpdfstring{CCLBP()}{CCLBP()}}
+{\footnotesize\ttfamily C\+C\+L\+B\+P\+::\+C\+C\+L\+BP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_s_in_out_rgns}{S\+In\+Out\+Rgns}}}]{to\+In\+Out,  }\item[{int}]{to\+Radius,  }\item[{int}]{to\+Neighbour\+Points\+Count,  }\item[{\mbox{\hyperlink{class_c_c_l_b_p_ac3590a658055c1ed264e4c85dea6db41}{E\+C\+L\+B\+P\+Type}}}]{to\+Clbp\+Type }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor calls its parents constructor and sets inner state and what its important it changes iterations\+Needed\+To\+Finish\+Val to 2. 
+
+N\+O\+TE\+: \mbox{\hyperlink{class_c_l_b_p}{C\+L\+BP}} need two passes over image at least 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em to\+In\+Out} & struct holding pointers to in and out regions (gimp\+\_\+pixel\+\_\+rgn), there is needed for pixels input and output \\
+\hline
+\mbox{\texttt{ in}}  & {\em to\+Radius} & radius for \mbox{\hyperlink{class_c_l_b_p}{C\+L\+BP}} \\
+\hline
+\mbox{\texttt{ in}}  & {\em to\+Neighbour\+Points\+Count} & number of neighbor points -\/ \mbox{\hyperlink{class_c_l_b_p}{C\+L\+BP}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_c_l_b_p_a80a75b4cf56e46b7e11d999bce475aa9}\label{class_c_c_l_b_p_a80a75b4cf56e46b7e11d999bce475aa9}} 
+\index{CCLBP@{CCLBP}!isFinished@{isFinished}}
+\index{isFinished@{isFinished}!CCLBP@{CCLBP}}
+\doxysubsubsection{\texorpdfstring{isFinished()}{isFinished()}}
+{\footnotesize\ttfamily bool C\+C\+L\+B\+P\+::is\+Finished (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_c_l_b_p_a80a75b4cf56e46b7e11d999bce475aa9}{is\+Finished()}} returns ture if is inner state set to finished, otherwise false 
+
+=== Documentation from \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}}\+: === \mbox{\hyperlink{class_c_c_l_b_p_a80a75b4cf56e46b7e11d999bce475aa9}{is\+Finished()}} return true if is process finished and output is done, otherwise returns true 
+
+Implements \mbox{\hyperlink{class_c_algorithm_a73a168113d4cf2aeba1bd738cc931a6f}{C\+Algorithm}}.
+
+\mbox{\Hypertarget{class_c_c_l_b_p_a99a8f943724c12d18b2fbe9abdd405d2}\label{class_c_c_l_b_p_a99a8f943724c12d18b2fbe9abdd405d2}} 
+\index{CCLBP@{CCLBP}!loop@{loop}}
+\index{loop@{loop}!CCLBP@{CCLBP}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void C\+C\+L\+B\+P\+::loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_c_l_b_p_a99a8f943724c12d18b2fbe9abdd405d2}{loop()}} calls next\+State(), becouse after two iterations over image is \mbox{\hyperlink{class_c_l_b_p}{C\+L\+BP}} finished 
+
+=== Documentation from \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}}\+: === \mbox{\hyperlink{class_c_c_l_b_p_a99a8f943724c12d18b2fbe9abdd405d2}{loop()}} provides \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} piece of information that one loop over the image has been finished
+
+is called in loop that is in \mbox{\hyperlink{class_c_process_handler}{C\+Process\+Handler}}. This loop calls processing of image or it\textquotesingle{}s part. 
+
+Implements \mbox{\hyperlink{class_c_algorithm_a6002853007641caeb58508123c6b555e}{C\+Algorithm}}.
+
+\mbox{\Hypertarget{class_c_c_l_b_p_a66268fd6592f958171f2b90ed93f37cf}\label{class_c_c_l_b_p_a66268fd6592f958171f2b90ed93f37cf}} 
+\index{CCLBP@{CCLBP}!out@{out}}
+\index{out@{out}!CCLBP@{CCLBP}}
+\doxysubsubsection{\texorpdfstring{out()}{out()}}
+{\footnotesize\ttfamily void C\+C\+L\+B\+P\+::out (\begin{DoxyParamCaption}\item[{guchar $\ast$}]{out\+Buffer,  }\item[{int}]{out\+X0,  }\item[{int}]{out\+Y0,  }\item[{int}]{width,  }\item[{int}]{height }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_c_l_b_p_a66268fd6592f958171f2b90ed93f37cf}{out()}}) is method that sends out data of processed image 
+
+O\+V\+E\+R\+R\+I\+D\+ES \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} implementation becouse in first iteration is there no output. It does send output data on second iteration, it just calls \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}} output.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em out\+Buffer} & pointer to data buffer of processed part of image which is going to be send out \\
+\hline
+\mbox{\texttt{ in}}  & {\em in\+X0} & start (left upper corner of image) x coordinate of part of image which is going to be send out \\
+\hline
+\mbox{\texttt{ in}}  & {\em in\+Y0} & start (left upper corner of image) y coordinate of part of image which is going to be send out \\
+\hline
+\mbox{\texttt{ in}}  & {\em load\+Width} & width of part of image which is going to be send out \\
+\hline
+\mbox{\texttt{ in}}  & {\em load\+Height} & height of part of image which is going to be send out \\
+\hline
+\end{DoxyParams}
+
+
+Reimplemented from \mbox{\hyperlink{class_c_algorithm_a28ea40b9c890918c29fb553785094736}{C\+Algorithm}}.
+
+\mbox{\Hypertarget{class_c_c_l_b_p_a49d836745731af82d06dd0a948d9a150}\label{class_c_c_l_b_p_a49d836745731af82d06dd0a948d9a150}} 
+\index{CCLBP@{CCLBP}!process@{process}}
+\index{process@{process}!CCLBP@{CCLBP}}
+\doxysubsubsection{\texorpdfstring{process()}{process()}}
+{\footnotesize\ttfamily void C\+C\+L\+B\+P\+::process (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{in\+Buf,  }\item[{unsigned char $\ast$}]{out\+Buf,  }\item[{int}]{out\+Width,  }\item[{int}]{out\+Height,  }\item[{int}]{channels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_c_l_b_p_a49d836745731af82d06dd0a948d9a150}{process()}} just passes parameters to other private functions 
+
+depends on state it passes parameters to mean\+Values or clbp\+\_\+smc it needs to switch becouse in first iteration it calculates only mean values in second itearion it calculates clbp(or its components)
+
+=== Documentation from \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}}\+: === \mbox{\hyperlink{class_c_c_l_b_p_a49d836745731af82d06dd0a948d9a150}{process()}} is method determined to run the main algorithm over the image
+
+Process method cant change number of channels between in\+Buf and out\+Buf.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in\+Buf} & pointer to input pixel array (2d array stored in 1d array) \\
+\hline
+\mbox{\texttt{ out}}  & {\em out\+Buf} & pointer to input pixel array (2d array stored in 1d array) \\
+\hline
+\mbox{\texttt{ in}}  & {\em out\+Width} & is width of output array(out\+Buf) \\
+\hline
+\mbox{\texttt{ in}}  & {\em out\+Height} & is width of output array(out\+Buf) \\
+\hline
+\mbox{\texttt{ in}}  & {\em channels} & number of channels per pixel of out\+Buf \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_c_algorithm_aa8eae924f8c5af0707addb4e39affe7d}{C\+Algorithm}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/\mbox{\hyperlink{_c_c_l_b_p_8hpp}{C\+C\+L\+B\+P.\+hpp}}\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/C\+C\+L\+B\+P.\+cpp\end{DoxyCompactItemize}

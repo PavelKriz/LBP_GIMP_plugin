@@ -1,0 +1,254 @@
+\hypertarget{class_c_abstract_l_b_p}{}\doxysection{C\+Abstract\+L\+BP Class Reference}
+\label{class_c_abstract_l_b_p}\index{CAbstractLBP@{CAbstractLBP}}
+
+
+\mbox{\hyperlink{class_c_abstract_l_b_p}{C\+Abstract\+L\+BP}} is class implementing things that have all L\+B\+Ps in common.  
+
+
+
+
+{\ttfamily \#include $<$C\+Abstract\+L\+B\+P.\+hpp$>$}
+
+Inheritance diagram for C\+Abstract\+L\+BP\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=3.000000cm]{class_c_abstract_l_b_p}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{struct_c_abstract_l_b_p_1_1_s_points_loc_coords}{S\+Points\+Loc\+Coords}}
+\begin{DoxyCompactList}\small\item\em $<$ Representation of neighbor point \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_c_abstract_l_b_p_ab18b90fc0f1e7157947311b8f370fba7}{C\+Abstract\+L\+BP}} (\mbox{\hyperlink{struct_s_in_out_rgns}{S\+In\+Out\+Rgns}} to\+In\+Out, int to\+Radius, int to\+Neighbour\+Points\+Count)
+\begin{DoxyCompactList}\small\item\em Constructor. \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_c_abstract_l_b_p_a076cf338329e09764ab33f42902f5d74}\label{class_c_abstract_l_b_p_a076cf338329e09764ab33f42902f5d74}} 
+\mbox{\hyperlink{class_c_abstract_l_b_p_a076cf338329e09764ab33f42902f5d74}{$\sim$\+C\+Abstract\+L\+BP}} ()
+\begin{DoxyCompactList}\small\item\em Destrcutor just deallocates allocated memory ~\newline
+ \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_abstract_l_b_p_ab050fee7f9743eba2a846e8e4d4b846b}{preparation}} (unsigned char $\ast$in\+Buf, unsigned char $\ast$out\+Buf, unsigned int channels, int width, int height, int \&out\+Channels) override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_abstract_l_b_p_ab050fee7f9743eba2a846e8e4d4b846b}{preparation()}} calculates gray value and neighborpoints local positions \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_c_abstract_l_b_p_ac0514330d0a583d08f47bb22a3b31424}{channels\+After\+Prep}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_abstract_l_b_p_ac0514330d0a583d08f47bb22a3b31424}{channels\+After\+Prep()}} just retturn channels\+After\+Preparation variable, which should be 1 (gray) for all L\+BP implementations \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_c_abstract_l_b_p_a193f8a993aff23c310964dd7da7ecc0b}{iterations\+Needed\+To\+Finish}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_abstract_l_b_p_a193f8a993aff23c310964dd7da7ecc0b}{iterations\+Needed\+To\+Finish()}} returns iterations\+Needed\+To\+Finish\+Val which must be set in constructor for each L\+BP differently \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_c_abstract_l_b_p_a398354741278bb57371882c5f664d3ac}{size\+Of\+Tile\+Borders}} () override
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{class_c_abstract_l_b_p_a398354741278bb57371882c5f664d3ac}{size\+Of\+Tile\+Borders()}} just returns L\+BP radius \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_c_abstract_l_b_p_a7f87b31c1acb1177d12a786affd3405b}{points\+Loc\+Coords\+Calc}} ()
+\begin{DoxyCompactList}\small\item\em calculates neighbor points local coordinates \end{DoxyCompactList}\item 
+unsigned char \mbox{\hyperlink{class_c_abstract_l_b_p_a249e64b8b960585ab9bc84a7f908b2bb}{calc\+Val\+By\+Interpol}} (unsigned char $\ast$in\+Buf, \mbox{\hyperlink{struct_c_abstract_l_b_p_1_1_s_points_loc_coords}{S\+Points\+Loc\+Coords}} \&pl\+Coords, int J, int I, int width)
+\begin{DoxyCompactList}\small\item\em calc\+Val\+By\+Interpol, interpolates between two points by their weight \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_c_abstract_l_b_p_addb3b620ec51214cb15f6ac1c8b5d475}{array\+To\+Gray}} (unsigned char $\ast$in\+Buf, unsigned char $\ast$out\+Buf, unsigned int channels, int pixel\+Count)
+\begin{DoxyCompactList}\small\item\em Converting pixels to gray. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_c_abstract_l_b_p_a07e922b9a690ed7a1a43929fb73cf7f9}\label{class_c_abstract_l_b_p_a07e922b9a690ed7a1a43929fb73cf7f9}} 
+\mbox{\hyperlink{struct_c_abstract_l_b_p_1_1_s_points_loc_coords}{S\+Points\+Loc\+Coords}} $\ast$ \mbox{\hyperlink{class_c_abstract_l_b_p_a07e922b9a690ed7a1a43929fb73cf7f9}{points\+Loc\+Coords}}
+\begin{DoxyCompactList}\small\item\em array of neighbor points -\/ every point is for higher accuracy defined by two pixels and weight -\/ one point may be also determined only by one pixel and weight 1 \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_c_abstract_l_b_p_a2e5d4270c81b987fa8431d0f19db66f3}\label{class_c_abstract_l_b_p_a2e5d4270c81b987fa8431d0f19db66f3}} 
+int \mbox{\hyperlink{class_c_abstract_l_b_p_a2e5d4270c81b987fa8431d0f19db66f3}{iterations\+Needed\+To\+Finish\+Val}}
+\begin{DoxyCompactList}\small\item\em how many iterations \end{DoxyCompactList}\item 
+\mbox{\Hypertarget{class_c_abstract_l_b_p_a2a7832a7b9819ac615e99cafc9981525}\label{class_c_abstract_l_b_p_a2a7832a7b9819ac615e99cafc9981525}} 
+int \mbox{\hyperlink{class_c_abstract_l_b_p_a2a7832a7b9819ac615e99cafc9981525}{neighbour\+Points\+Count}}
+\begin{DoxyCompactList}\small\item\em number of neighbor points to central points \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_c_abstract_l_b_p_aa3ebf9d16f50b2f6904b702a09db9148}{radius}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{class_c_abstract_l_b_p_adffca36789bbe482c0a31361755bef73}\label{class_c_abstract_l_b_p_adffca36789bbe482c0a31361755bef73}} 
+static const int \mbox{\hyperlink{class_c_abstract_l_b_p_adffca36789bbe482c0a31361755bef73}{channels\+After\+Preparation}} = 1
+\begin{DoxyCompactList}\small\item\em number of channels after preparation is for every L\+BP 1 (grayscale) \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{class_c_abstract_l_b_p}{C\+Abstract\+L\+BP}} is class implementing things that have all L\+B\+Ps in common. 
+
+It provides coordinates of neighbor points, even with interpolation between two pixels for higher accuracy of point placement. It provides conversion from multichannel per pixel (Gray, GrayA, R\+GB, R\+G\+BA) to Grayscale \mbox{[}0,255\mbox{]} and other things that have L\+B\+Ps methods in common. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{class_c_abstract_l_b_p_ab18b90fc0f1e7157947311b8f370fba7}\label{class_c_abstract_l_b_p_ab18b90fc0f1e7157947311b8f370fba7}} 
+\index{CAbstractLBP@{CAbstractLBP}!CAbstractLBP@{CAbstractLBP}}
+\index{CAbstractLBP@{CAbstractLBP}!CAbstractLBP@{CAbstractLBP}}
+\doxysubsubsection{\texorpdfstring{CAbstractLBP()}{CAbstractLBP()}}
+{\footnotesize\ttfamily C\+Abstract\+L\+B\+P\+::\+C\+Abstract\+L\+BP (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{struct_s_in_out_rgns}{S\+In\+Out\+Rgns}}}]{to\+In\+Out,  }\item[{int}]{to\+Radius,  }\item[{int}]{to\+Neighbour\+Points\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Constructor. 
+
+sets iterations\+Needed\+To\+Finish\+Val to 1, becouse most L\+BP methods needs only one also it allocates array for local coordinats to all neighbor points (\mbox{\hyperlink{struct_c_abstract_l_b_p_1_1_s_points_loc_coords}{S\+Points\+Loc\+Coords}})
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em to\+In\+Out} & struct holding pointers to in and out regions (gimp\+\_\+pixel\+\_\+rgn), there is needed for pixels input and output \\
+\hline
+\mbox{\texttt{ in}}  & {\em to\+Radius} & radius for L\+BP \\
+\hline
+\mbox{\texttt{ in}}  & {\em to\+Neighbour\+Points\+Count} & number of neighbor points -\/ L\+BP \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{class_c_abstract_l_b_p_addb3b620ec51214cb15f6ac1c8b5d475}\label{class_c_abstract_l_b_p_addb3b620ec51214cb15f6ac1c8b5d475}} 
+\index{CAbstractLBP@{CAbstractLBP}!arrayToGray@{arrayToGray}}
+\index{arrayToGray@{arrayToGray}!CAbstractLBP@{CAbstractLBP}}
+\doxysubsubsection{\texorpdfstring{arrayToGray()}{arrayToGray()}}
+{\footnotesize\ttfamily void C\+Abstract\+L\+B\+P\+::array\+To\+Gray (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{in\+Buf,  }\item[{unsigned char $\ast$}]{out\+Buf,  }\item[{unsigned int}]{channels,  }\item[{int}]{pixel\+Count }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Converting pixels to gray. 
+
+Conversion is based on weighted formula for all channels, or only copiing from alpha gray to just gray 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in\+Buf} & Buffer with pixels that should be converted to grayscale ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em out\+Buf} & out\+Put Buffer where is stored result -\/ only one channel used(grayscale) \\
+\hline
+\mbox{\texttt{ in}}  & {\em channels} & Number of channels used, (1,2,3,4) ... otherwise out\+Buf is N\+U\+LL \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_c_abstract_l_b_p_a249e64b8b960585ab9bc84a7f908b2bb}\label{class_c_abstract_l_b_p_a249e64b8b960585ab9bc84a7f908b2bb}} 
+\index{CAbstractLBP@{CAbstractLBP}!calcValByInterpol@{calcValByInterpol}}
+\index{calcValByInterpol@{calcValByInterpol}!CAbstractLBP@{CAbstractLBP}}
+\doxysubsubsection{\texorpdfstring{calcValByInterpol()}{calcValByInterpol()}}
+{\footnotesize\ttfamily unsigned char C\+Abstract\+L\+B\+P\+::calc\+Val\+By\+Interpol (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{in\+Buf,  }\item[{\mbox{\hyperlink{struct_c_abstract_l_b_p_1_1_s_points_loc_coords}{S\+Points\+Loc\+Coords}} \&}]{pl\+Coords,  }\item[{int}]{J,  }\item[{int}]{I,  }\item[{int}]{width }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+calc\+Val\+By\+Interpol, interpolates between two points by their weight 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in\+Buf} & pointer to pixel(points) array (2d array stored in 1d array) \\
+\hline
+\mbox{\texttt{ in}}  & {\em pl\+Coords} & local coordinates of two points and their weights which are going to be interpolated \\
+\hline
+\mbox{\texttt{ in}}  & {\em J} & x coordinate of center point in in\+Buf, (it\textquotesingle{}s also zero points for local coordinates) ~\newline
+ \\
+\hline
+\mbox{\texttt{ in}}  & {\em I} & y coordinate of center point in in\+Buf, (it\textquotesingle{}s also zero points for local coordinates) \\
+\hline
+\mbox{\texttt{ in}}  & {\em width} & width of in\+Buf 2d array (width means x dimension of 2d array) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{class_c_abstract_l_b_p_ac0514330d0a583d08f47bb22a3b31424}\label{class_c_abstract_l_b_p_ac0514330d0a583d08f47bb22a3b31424}} 
+\index{CAbstractLBP@{CAbstractLBP}!channelsAfterPrep@{channelsAfterPrep}}
+\index{channelsAfterPrep@{channelsAfterPrep}!CAbstractLBP@{CAbstractLBP}}
+\doxysubsubsection{\texorpdfstring{channelsAfterPrep()}{channelsAfterPrep()}}
+{\footnotesize\ttfamily int C\+Abstract\+L\+B\+P\+::channels\+After\+Prep (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_abstract_l_b_p_ac0514330d0a583d08f47bb22a3b31424}{channels\+After\+Prep()}} just retturn channels\+After\+Preparation variable, which should be 1 (gray) for all L\+BP implementations 
+
+=== Documentation from \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}}\+: === \mbox{\hyperlink{class_c_abstract_l_b_p_ac0514330d0a583d08f47bb22a3b31424}{channels\+After\+Prep()}} should return number of channels after preparation 
+
+Implements \mbox{\hyperlink{class_c_algorithm_aea9101601748e24139527c79453b0f21}{C\+Algorithm}}.
+
+\mbox{\Hypertarget{class_c_abstract_l_b_p_a193f8a993aff23c310964dd7da7ecc0b}\label{class_c_abstract_l_b_p_a193f8a993aff23c310964dd7da7ecc0b}} 
+\index{CAbstractLBP@{CAbstractLBP}!iterationsNeededToFinish@{iterationsNeededToFinish}}
+\index{iterationsNeededToFinish@{iterationsNeededToFinish}!CAbstractLBP@{CAbstractLBP}}
+\doxysubsubsection{\texorpdfstring{iterationsNeededToFinish()}{iterationsNeededToFinish()}}
+{\footnotesize\ttfamily int C\+Abstract\+L\+B\+P\+::iterations\+Needed\+To\+Finish (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_abstract_l_b_p_a193f8a993aff23c310964dd7da7ecc0b}{iterations\+Needed\+To\+Finish()}} returns iterations\+Needed\+To\+Finish\+Val which must be set in constructor for each L\+BP differently 
+
+=== Documentation from \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}}\+: === \mbox{\hyperlink{class_c_abstract_l_b_p_a193f8a993aff23c310964dd7da7ecc0b}{iterations\+Needed\+To\+Finish()}} returns number of iterations over image needed to complete process 
+
+Implements \mbox{\hyperlink{class_c_algorithm_a3f604e5039225314123bd3d008c68b53}{C\+Algorithm}}.
+
+\mbox{\Hypertarget{class_c_abstract_l_b_p_a7f87b31c1acb1177d12a786affd3405b}\label{class_c_abstract_l_b_p_a7f87b31c1acb1177d12a786affd3405b}} 
+\index{CAbstractLBP@{CAbstractLBP}!pointsLocCoordsCalc@{pointsLocCoordsCalc}}
+\index{pointsLocCoordsCalc@{pointsLocCoordsCalc}!CAbstractLBP@{CAbstractLBP}}
+\doxysubsubsection{\texorpdfstring{pointsLocCoordsCalc()}{pointsLocCoordsCalc()}}
+{\footnotesize\ttfamily void C\+Abstract\+L\+B\+P\+::points\+Loc\+Coords\+Calc (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+calculates neighbor points local coordinates 
+
+It calculates position of every point by cos(angle) for x and -\/sin(angle) for y. Position coordinates are rounded too and then multiplied by radius so they are in proper distance. Note\+: angle is computed for every point like this\+: 2$\ast$\+P\+I/\mbox{[}number of neighbor points\mbox{]}$\ast$\mbox{[}order of point\mbox{]} Note\+: sometimes are coordinates almost rounded to higher or lower number (example -\/ 3.\+42). So for higher accuracy is calculated also second point then its final point interpolated between these two pixels.
+
+s\+Second point is distributed like this\+: dist\+Y/distX are values computed from\+: coordinate\+\_\+on\+\_\+axis\+X/Y -\/ rounded \+\_\+coordinate\+\_\+on\+\_\+axis\+X/Y This diagram represents one pixel, every ascii symbol represents square with side length 0.\+25(pixel length). Left lower corner has coordinates \mbox{[}-\/0.\+5,-\/0.\+5\mbox{]} Second pixel will be on place depending on coordinates of \mbox{[}distX, distY\mbox{]} @ -\/ second point will be also center $^\wedge$ $>$ V $<$ -\/ second point will be upper or right or lower or left neighbor pixel ┌ ┐ └ ┘ -\/ second point will be one of the corner neighbors
+
+D\+I\+A\+G\+R\+AM
+
+┌ $^\wedge$ $^\wedge$ ┐ $<$ @ @ $>$ $<$ @ @ $>$ └ V V ┘ second point is distributed like this\+: This diagram represents one pixel, every ascii symbol represents square with side length 0.\+25(pixel length). Left lower corner has coordinates \mbox{[}-\/0.\+5,-\/0.\+5\mbox{]} Second pixel will be on place depending on coordinates of \mbox{[}distX, distY\mbox{]} @ -\/ second point will be also center $^\wedge$ $>$ V $<$ -\/ second point will be upper or right or lower or left neighbor pixel ┌ ┐ └ ┘ -\/ second point will be one of the corner neighbors
+
+┌ $^\wedge$ $^\wedge$ ┐ $<$ @ @ $>$ $<$ @ @ $>$ └ V V ┘\mbox{\Hypertarget{class_c_abstract_l_b_p_ab050fee7f9743eba2a846e8e4d4b846b}\label{class_c_abstract_l_b_p_ab050fee7f9743eba2a846e8e4d4b846b}} 
+\index{CAbstractLBP@{CAbstractLBP}!preparation@{preparation}}
+\index{preparation@{preparation}!CAbstractLBP@{CAbstractLBP}}
+\doxysubsubsection{\texorpdfstring{preparation()}{preparation()}}
+{\footnotesize\ttfamily void C\+Abstract\+L\+B\+P\+::preparation (\begin{DoxyParamCaption}\item[{unsigned char $\ast$}]{in\+Buf,  }\item[{unsigned char $\ast$}]{out\+Buf,  }\item[{unsigned int}]{channels,  }\item[{int}]{width,  }\item[{int}]{height,  }\item[{int \&}]{out\+Channels }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_abstract_l_b_p_ab050fee7f9743eba2a846e8e4d4b846b}{preparation()}} calculates gray value and neighborpoints local positions 
+
+Preparation is the same for all implemented L\+BP extracting methods; All implemented L\+BP\textquotesingle{}s need gray value input, so this preparation calculates them. All L\+BP\textquotesingle{}s need coordinates of neighbor points, so this preparation calculates those coords also.
+
+=== Documentation from \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}}\+: === \mbox{\hyperlink{class_c_abstract_l_b_p_ab050fee7f9743eba2a846e8e4d4b846b}{preparation()}} is method that prepares image data for later processing
+
+Advantage of using this method instead of using only \mbox{\hyperlink{class_c_algorithm_aa8eae924f8c5af0707addb4e39affe7d}{process()}} method is that preparation algorithm can change number of channels per pixel. So, algorithm can change number of channels per pixels without allocation in algorithm.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em in\+Buf} & pointer to input pixel array (2d array stored in 1d array) \\
+\hline
+\mbox{\texttt{ out}}  & {\em out\+Buf} & pointer to output pixel array (2d array stored in 1d array) \\
+\hline
+\mbox{\texttt{ in}}  & {\em channels} & number of channels per pixel of in\+Buf \\
+\hline
+\mbox{\texttt{ in}}  & {\em width} & width of 2d array stored in in\+Buf \\
+\hline
+\mbox{\texttt{ in}}  & {\em height} & height of 2d array stored in in\+Buf \\
+\hline
+\mbox{\texttt{ out}}  & {\em out\+Channels} & number of channels per pixel of out\+Buf \\
+\hline
+\end{DoxyParams}
+
+
+Implements \mbox{\hyperlink{class_c_algorithm_a49ad13f8c8e550ce901858fbb991e7e0}{C\+Algorithm}}.
+
+\mbox{\Hypertarget{class_c_abstract_l_b_p_a398354741278bb57371882c5f664d3ac}\label{class_c_abstract_l_b_p_a398354741278bb57371882c5f664d3ac}} 
+\index{CAbstractLBP@{CAbstractLBP}!sizeOfTileBorders@{sizeOfTileBorders}}
+\index{sizeOfTileBorders@{sizeOfTileBorders}!CAbstractLBP@{CAbstractLBP}}
+\doxysubsubsection{\texorpdfstring{sizeOfTileBorders()}{sizeOfTileBorders()}}
+{\footnotesize\ttfamily int C\+Abstract\+L\+B\+P\+::size\+Of\+Tile\+Borders (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [override]}, {\ttfamily [virtual]}}
+
+
+
+\mbox{\hyperlink{class_c_abstract_l_b_p_a398354741278bb57371882c5f664d3ac}{size\+Of\+Tile\+Borders()}} just returns L\+BP radius 
+
+=== Documentation from \mbox{\hyperlink{class_c_algorithm}{C\+Algorithm}}\+: === \mbox{\hyperlink{class_c_abstract_l_b_p_a398354741278bb57371882c5f664d3ac}{size\+Of\+Tile\+Borders()}} returns size of neighbourhood (radius) in pixels that is needed to calculate value of one pixel(or area) 
+
+Implements \mbox{\hyperlink{class_c_algorithm_a615b2dd848ecfeb50ef97daec616373e}{C\+Algorithm}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{class_c_abstract_l_b_p_aa3ebf9d16f50b2f6904b702a09db9148}\label{class_c_abstract_l_b_p_aa3ebf9d16f50b2f6904b702a09db9148}} 
+\index{CAbstractLBP@{CAbstractLBP}!radius@{radius}}
+\index{radius@{radius}!CAbstractLBP@{CAbstractLBP}}
+\doxysubsubsection{\texorpdfstring{radius}{radius}}
+{\footnotesize\ttfamily int C\+Abstract\+L\+B\+P\+::radius\hspace{0.3cm}{\ttfamily [protected]}}
+
+radius is distance of neighbor points from central point 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/\mbox{\hyperlink{_c_abstract_l_b_p_8hpp}{C\+Abstract\+L\+B\+P.\+hpp}}\item 
+C\+:/\+Users/\+Pavel/\+Desktop/tmp/C\+Abstract\+L\+B\+P.\+cpp\end{DoxyCompactItemize}
