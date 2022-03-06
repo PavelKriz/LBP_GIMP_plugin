@@ -64,7 +64,7 @@ Note: Square brackets do not belong to commands, they only indicate the area in 
 The processed results of the plugin will be shown in the following image. The rag area in the picture is interesting for its textureis clearly visible on LBP visualizations. It is also interesting to note the absence of an effect of color shades on the LBP. You can see it well, for example, on a rag or on a pallet. For example, edges can be interesting, namely the edge of a palace or a brush presenting blurred edges. The image thus allows to observe the differences in LBP in the focused part of the image and in the unfocused part of the image.
 
 <figure>
-<img src = example_images / testImage.JPG width = "400">
+<img src=example_images/testImage.JPG width="400">
 <figcaption> Image used to demonstrate how the plugin works. </figcaption>
 </figure>
 
@@ -79,17 +79,17 @@ LBP is a method of obtaining the symptoms on which other LBP methods are based. 
 The following diagram explains the meaning of each RGB channel when displaying LBP. The colors explain what part of the environment affected the given LBP value. Each color channel thus displays the value as if the LBP sum was calculated only for points from the given neighborhood. Neighboring points mean neighboring points. It all depends on the number of neighboring points. Additional color channels are displayed or not displayed depending on the number of adjacent points. For 24 contiguous points, there are 8 contiguous points for each color channel. However, if the number of neighboring points was only 19 then the red channel for the first eight points in the direction of the arrows, the green channel for the next eight points and finally for the remaining 3 points the blue channel. Thus analogous to other numbers of neighboring points.
 <figure>
 <figcaption> Diagram 1 - visualization of values, p = number of adjacent pixel points </figcaption>
-<img src = GimpPluginLBPSousedniBodydrawio.JPG width = "1000">
+<img src=GimpPluginLBPSousedniBodydrawio.JPG width="1000">
 </figure>
 
 <figure>
-<img src = example_images / LBP10r8p.JPG width = "400" alt = "LBP with radius = 10 and number of neighboring points = 8">
+<img src=example_images/LBP10r8p.JPG width="400" alt="LBP s parametry radius = 10 a počet sousedních bodů = 8">
 <figcaption> LBP with parameters radius = 10 and number of neighboring points = 8 </figcaption>
 
-<img src = example_images / LBP1r16p.JPG width = "400" alt = "LBP with radius = 1 and number of neighboring points = 16">
+<img src=example_images/LBP1r16p.JPG width="400" alt="LBP s parametry radius = 1 a počet sousedních bodů = 16">
 <figcaption> LBP with parameters radius = 1 and number of neighboring points = 16, It is interesting to note that the red color is for LBP values ​​of the sum only with lower neighboring points and green vice versa </figcaption>
 
-<img src = example_images / LBP10r24p.JPG width = "400" alt = "LBP with radius = 10 and number of neighboring points = 24">
+<img src=example_images/LBP10r24p.JPG width="400" alt="LBP s parametry radius = 10 a počet sousedních bodů = 24">
 <figcaption> LBP with parameters radius = 10 and number of neighboring points = 24 </figcaption>
 </figure>
 
@@ -98,7 +98,7 @@ The following diagram explains the meaning of each RGB channel when displaying L
 The mLBP method is derived from LBP and its results are similar to LBB. MLBP visualization has the same rules as LBP see diagram 1.
 
 <figure>
-<img src = example_images / mLBP10r8p.JPG width = "400" alt = "mLBP with radius = 10 and number of neighboring points = 8">
+<img src=example_images/mLBP10r8p.JPG width="400" alt="mLBP s parametry radius = 10 a počet sousedních bodů = 8">
 mLf with parameters radius = 10 and number of neighboring points = 8 </figcaption>
 </figure>
 
@@ -109,10 +109,10 @@ The ULBP method is calculated by the same basic LBP but omits non-uniform values
 The LBP method is displayed similarly to LBP with the only difference that the maximum number of neighboring points is only 16 and non-uniform values ​​are displayed as RGB (0,0,255).
 
 <figure>
-<img src = example_images / LBP190r16p.JPG width = "400" alt = "LBP with radius = 190 and number of neighboring points = 16">
+<img src=example_images/LBP190r16p.JPG width="400" alt="LBP s parametry radius = 190 a počet sousedních bodů = 16">
 <figcaption> LBP with parameters radius = 190 and number of neighboring points = 16 </figcaption>
 
-<img src = example_images / ULBP190r16p.JPG width = "400" alt = "ULBP with parameters radius = 190 and number of neighboring points = 16">
+<img src=example_images/ULBP190r16p.JPG width="400" alt="ULBP s parametry radius = 190 a počet sousedních bodů = 16">
 <figcaption> ULBP with parameters radius = 190 and number of neighboring points = 16 </figcaption>
 </figure>
 
@@ -121,7 +121,7 @@ The LBP method is displayed similarly to LBP with the only difference that the m
 The CLBP calculation consists of three parts CLBP_S, CLBP_M, CLBP_C. The plugin visualizes all three at once CLBP_S (red channel RGB), CLBP_M (green channel RGB) and CLBP_C (blue channel LBP). The individual channels then visualize the CLBP subpart values ​​in the range 0 to 255. The maximum number of adjacent points is 8.
 
 <figure>
-<img src = example_images / CLBP10r8p.JPG width = "400" alt = "CLBP with radius = 10 and number of neighboring points = 8">
+<img src=example_images/CLBP10r8p.JPG width="400" alt="CLBP s parametry radius = 10 a počet sousedních bodů = 8">
 <figcaption> CLBP with parameters radius = 10 and number of neighboring points = 8 </figcaption>
 </figure>
 
@@ -130,7 +130,7 @@ The CLBP calculation consists of three parts CLBP_S, CLBP_M, CLBP_C. The plugin 
 The plugin can also display individual CLBP components. Values ​​are mapped from smallest (darkest) to largest (lightest). The highest value is not white but it is colored white. Here it is colored red, because in CLBP, CLBP_S is represented by a red RGB channel.
 
 <figure>
-<img src = example_images / CLBP_S10r8p.JPG width = "400" alt = "CLBP_S with parameters radius = 10 and number of neighboring points = 8">
+<img src=example_images/CLBP_S10r8p.JPG width="400" alt="CLBP_S s parametry radius = 10 a počet sousedních bodů = 8">
 <figcaption> CLBP_S with parameters radius = 10 and number of neighboring points = 8 </figcaption>
 </figure>
 
@@ -139,7 +139,7 @@ The plugin can also display individual CLBP components. Values ​​are mapped 
 The plugin can also display individual CLBP components. Values ​​are mapped from smallest (darkest) to largest (lightest). The highest value is not white but it is a colorwhite. Here it is colored green, because in CLBP, CLBP_M is represented by the green RGB channel.
 
 <figure>
-<img src = example_images / CLBP_M10r8p.JPG width = "400" alt = "CLBP_M with parameters radius = 10 and number of neighboring points = 8">
+<img src=example_images/CLBP_M10r8p.JPG width="400" alt="CLBP_M s parametry radius = 10 a počet sousedních bodů = 8">
 <figcaption> CLBP_M with parameters radius = 10 and number of neighboring points = 8 </figcaption>
 </figure>
 
@@ -148,7 +148,7 @@ The plugin can also display individual CLBP components. Values ​​are mapped 
 The plugin can also display individual CLBP components. Values ​​are mapped from smallest (darkest) to largest (lightest). The highest value is not white but it is colored white. Here it is colored blue, because in CLBP, CLBP_C is represented by a blue RGB channel.
 
 <figure>
-<img src = example_images / CLBP_C10r8p.JPG width = "400" alt = "CLBP_C with parameters radius = 10 and number of neighboring points = 8">
+<img src=example_images/CLBP_C10r8p.JPG width="400" alt="CLBP_C s parametry radius = 10 a počet sousedních bodů = 8">
 <figcaption> CLBP_C with parameters radius = 10 and number of neighboring points = 8 </figcaption>
 </figure>
 
