@@ -1,157 +1,157 @@
 # Pavel's LBP Gimp Plugin
-## Zadání
-LBP Příznaky	Vytvořte plug-in do GIMPu počítající a zobrazující příznaky (parametrické) LBP	30b
+## Input
+LBP Flags Create a GIMP plug-in that counts and displays (parametric) LBP 30b flags
 
-Vytvořte plugin počítající a zbrazující základní, nijak nerozšířené LBP příznaky.
+Create a plugin that counts and displays basic, not widespread LBP flags.
 
-Lze získat dodatečných 10b za vytvoření parametrických příznaků (poloměr).
+An additional 10b can be obtained to create parametric flags (radius).
 
-Lze získat dodatečných 10b za použítí centralised LBP.
+An additional 10b can be obtained using a centralized LBP.
 
-Lze získat dodatečných 10b za použítí dominant LBP.
+An additional 10b can be obtained using LBP dominants.
 
-Úloho lze dále rozšížit o další varianty LBP příznaků.
+The task can be further extended by other variants of LBP symptoms.
 
-## Poznámka pro hodnotící
- Po konzultaci se cvičícím jsem implementoval zadání za celkem 50 bodů. Implementoval jsem základní úlohu, rozšířil o další metody LBP. Podmínka konzultujícího učitele pro 50 bodovou úlohu, byla implementace složitějšího LBP, tím je zde implementované CLBP. Také přidáno do zadání trochu vylepšit UI pluginu, nyní je trochu interaktivní. Další výhody proč si myslím, že moje implementace takového pluginu je dobrá uvádím v sekci Vlastnosti pluginu. Také bych se snažil zmínit hlavně dokumentaci, kterou jsem se snažil dělat obsáhle, protože mě takového něco chybělo při tvoření pluginu. Zvlášť žádná z ukázkových prací studentů není psaná v c++. Snažil jsem se o to, jestliže je tato práce obstojná, aby mohla pomoct budoucím studentům.
+## Note for evaluators
+ After consulting with the instructor, I implemented the assignment for a total of 50 points. I implemented the basic task, extended other LBP methods. The condition of the consulting teacher for the 50-point task was the implementation of a more complex LBP, thus the CLBP is implemented here. Also added to the input to slightly improve the UI plugin, now it's a bit interactive. Other advantages of why I think my implementation of such a plugin is good are listed in the Plugin Properties section. I would also try to mention mainly the documentation that I tried to do extensively, because I missed something like that when creating the plugin. In particular, none of the students' sample works are written in c ++. I have tried to do this, if this work is decent, so that it can help future students.
 
-## Úvod
-Podle zadání byl naiplementován plugin do editoru fotek Gimp. Cílem pluginu je vypočíst a vyzualizovat zvolené druhy LBP příznaků. Implementované LBP metody zínskávání příznaků jsou LBP, mLBP, ULBP, CLBP. Popis těchto algoritmů uvádím v příloze Popis použitých algoritmů. Další popisy použitých algoritmů se dají naléz v dokumentaci kódu. 
+## Introduction
+According to the assignment, the plugin was added to the Gimp photo editor. The goal of the plugin is to calculate and visualize the selected types of LBP flags. Implemented LBP methods of symptom screening are LBP, mLBP, ULBP, CLBP. A description of these algorithms is given in the appendix Description of used algorithms. Further descriptions of the algorithms used can be found in the code documentation.
 
-**Poznámka**:
+**Note**:
 
-Velká část pluginu se dá využít jako kostra při programování jiného plugin do programu Gimp. Stačí naimplementovat rozhraní CAlghoritm(podle dokumentace kódu), případně upravit UI část pluginu a ve třídě CProcessHandler umožnit spouštění nově naprogramovaného algortimu(podle dokumentace kódu).
+Much of the plugin can be used as a skeleton when programming another plugin for Gimp. All you have to do is implement the CAlghoritm interface (according to the code documentation), or modify the UI part of the plugin and enable the execution of the newly programmed algorithm in the CProcessHandler class (according to the code documentation).
 
-## Důležité odkazy
+## Important links
 
-<a href="https://github.com/PavelKriz/LBP_GIMP_plugin/tree/master/code">Složka obsahující kód pluginu a instalační skript compile.sh.</a> 
+<a href="https://github.com/PavelKriz/LBP_GIMP_plugin/tree/master/code"> Folder containing plugin code and compile.sh installation script. </a>
 
-<a href="https://github.com/PavelKriz/LBP_GIMP_plugin/tree/master/docs/html">Složka s Doxygen html dokumentací kódu.</a>
+<a href="https://github.com/PavelKriz/LBP_GIMP_plugin/tree/master/docs/html"> Doxygen html documentation folder. </a>
 
-<a href="https://github.com/PavelKriz/LBP_GIMP_plugin/blob/master/docs/html/index.html">Úvodní vstup do dokumentace.</a>
+<a href="https://github.com/PavelKriz/LBP_GIMP_plugin/blob/master/docs/html/index.html"> Introductory entry to the documentation. </a>
 
-<a href="https://github.com/PavelKriz/LBP_GIMP_plugin/blob/master/Algoritmy/LBP.pdf">PDF dokumentace algoritmů.</a> 
+<a href="https://github.com/PavelKriz/LBP_GIMP_plugin/blob/master/Algorithms/LBP.pdf"> PDF algorithm documentation. </a>
 
-## Vlastnosti pluginu
+## Plugin properties
 
-* Kód pluginu je na rozsah práce rozsáhle dokumentován.
-* Plugin se dá velice rychle předělat na jinou funkčnost. Stačí naimplementovat rozhraní CAlghoritm(podle dokumentace), případně upravit UI část pluginu a ve třídě CProcessHandler umožnit spouštění nově naprogramovaného algortimu(podle dokumentace). Použitím tohoto postupu programátor ušetří velké množství času při stejné funkčnosti.
-* Plugin je naimplementován v C++ a díky tomu je rychlý.
-* Zpracovávání obrázku se vykonává po dlaždicích, je tedy velice nenáročný na paměť.
-* Zpracovávání po částech není v LBP primitivní úloha jelikož k výpočtu hodnoty pixelu je zapotřebí jeho okolí. Okolí dlaždice je buď získáno z obrázku nebo zrcadlením dlaždice přes hranu obrázku.
-* Souřadnice okolních bodů pro výpočet lokálního LBP příznaku jsou interpolovány z dvou pixelů. Získané hodnoty jsou tak přesnější.
-* Plugin obsahuje interaktivní UI, které se mění na základě volby metody získávání LBP.
+* The plugin code is extensively documented for the scope of work.
+* The plugin can be converted to other functionality very quickly. All you have to do is implement the CAlghoritm interface (according to the documentation), or modify the UI part of the plugin and enable the execution of the newly programmed algorithm (according to the documentation) in the CProcessHandler class. By using this procedure, the programmer saves a lot of time with the same functionality.
+* The plugin is implemented in C ++ and is therefore fast.
+* Image processing is performed by tiles, so it is very memory-intensive.
+* Part processing is not a primitive task in LBP as its surroundings are needed to calculate the pixel value. The area around the tile is either obtained from the image or by mirroring the tile over the edge of the image.
+* The coordinates of the surrounding points for calculating the local LBP flag are interpolated from two pixels. The values ​​obtained are thus more accurate.
+* The plugin contains an interactive UI that changes based on the choice of LBP retrieval method.
 
-## Další dokumentace
+## Additional documentation
 
-Vytvořil jsem další dvě dokumentace.
+I created two more dossiers.
 
-PDF dokumntace popisující použité LBP metody se dá najít ve složce ./Algoritmy 
+PDF documentation describing the used LBP methods can be found in the folder ./Algorithms
 
-Dokumentace kódu je umístěná ve složce ./Docs/html a do úvodní stránky se spustí otevřením souboru index.html. Jde o vygenerovoanu html dokumentaci kódu. Dokumentace byla vygenerována z kódu, hlavně hlavičkových souborů. Tato dokumentace se zde nachází i v nezkompilované latex podobě ve složce ./Docs/latex.
+The code documentation is located in the ./Docs/html folder and is launched on the start page by opening the index.html file. This is the generated html code documentation. The documentation was generated from code, mainly header files. This documentation can also be found here in uncompiled latex in the ./Docs/latex folder.
 
-## Instalace
+## Installation
 
-Návod je napsaný pro operační systém Linux. Jelikože se plugin sestává z více složek a využívá knihovny navíc nedá se zkompilovat pomocí základního instalátoru pluginů pro Gimp gimptool-2.0. Instalace je však jednoduchá. Všechny soubory ze složky ./code mít ve stejném adresáři. Z tohoto adresáře spustit příkaz [gimptool-2.0 --install PavelsLBPGimpPlugin.cpp]. Tento příkaz skončí neúspěchem. Je potřeba ignorovat chybová hlášení a je potřeba zkopírovat část kterou gimptool vypíše na začátku výpisu od gcc až po poslední přidanou knihovnu (měla by to být -lfreetype). Následně spustit ze stejného adresáře příkaz [./compile.sh "[zkopírovaná část]"]. Teď by již měl být plugin úspěšně zkompilován do správné složky která slouží programu Gimp pro pluginy. 
+The manual is written for the Linux operating system. Because the plugin consists of multiple folders and uses a library, it cannot be compiled using the basic plugin installer for Gimp gimptool-2.0. However, installation is simple. All files in the ./code folder have the same directory. Run the command [gimptool-2.0 --install PavelsLBPGimpPlugin.cpp] from this directory. This command fails. It is necessary to ignore error messages and it is necessary to copy the part that gimptool prints at the beginning of the listing from gcc to the last library added (it should be -lfreetype). Then run the command [./compile.sh "[copied part]"] from the same directory. The plugin should now be successfully compiled into the correct Gimp plugin folder.
 
-Plugin je následovně přístupný přes filters/misc/PavelsLBPGimpPlugin. Aby mohl být plugin zapnut tak musí být otevřený nějaký obrázek.
+The plugin is then accessible via filters / misc / PavelsLBPGimpPlugin. An image must be open for the plugin to be enabled.
 
-Poznámka: Hranaté závorky do příkazů nepatří, jen označují oblast ve které je příkaz nebo nějaká proměná.
+Note: Square brackets do not belong to commands, they only indicate the area in which the command or some variable is.
 
 
-## Implementované LBP metody
+## Implemented LBP methods
 
-Zpracované výsledky pluginu budou předvedeny na následujicím obrázku. Oblast hadru na obrázku je zajímavá svojí texturou, ta je na vizualizacích LBP dobře vidět. Také ja zajímavé si všimnout absenci vlivu odstínů barev na LBP. DObře je to vidět například na hadru nebo i na paletě. Zajímavé mohou být například i hrany a to hrana palaty nebo štětce prezentující neostré hrany. Obrázek tak umožňuje pozorovat rozdíly v LBP v zaostřené části obrazku a v nezaostřené části obrazku.
+The processed results of the plugin will be shown in the following image. The rag area in the picture is interesting for its textureis clearly visible on LBP visualizations. It is also interesting to note the absence of an effect of color shades on the LBP. You can see it well, for example, on a rag or on a pallet. For example, edges can be interesting, namely the edge of a palace or a brush presenting blurred edges. The image thus allows to observe the differences in LBP in the focused part of the image and in the unfocused part of the image.
 
 <figure>
-<img src=example_images/testImage.JPG width="400">
-<figcaption>Obrázek použitý pro ukázku práce pluginu.</figcaption>
+<img src = example_images / testImage.JPG width = "400">
+<figcaption> Image used to demonstrate how the plugin works. </figcaption>
 </figure>
 
-Autorem obrázku je autor pluginu.
+The author of the image is the author of the plugin.
 
-Ve všech případech implementací je rozsah radia maximálně 190 a minimálně 1. Počet sousedních bodů se liší podle implementované metody, minimum je však 4 a maximum ze všech metod je 24.
+In all implementation cases, the range of the radio is a maximum of 190 and a minimum of 1. The number of neighboring points varies according to the implemented method, but the minimum is 4 and the maximum of all methods is 24.
 
-### LBP 
+### LBP
 
-LBP je metoda získávání příznaků ze které další LBP metody vychází. Plugin zobrazuje hodnoty LBP podle nákresu 1. Každá barva má tak svůj význam.
+LBP is a method of obtaining the symptoms on which other LBP methods are based. The plugin displays the LBP values ​​according to Figure 1. Each color has its own meaning.
 
-Násoledující diagram vysvětluje význam jednotlivých kanálů RGB při zobrazení LBP. Barvy vysvětlují jaká část okolí měla vliv na danou hodnotu LBP. Každý barevný kanál tak zobrazuje hodnotu jako kdyby se LBP suma počítala pouze pro body z daného okolí. Okolím jsou myšleny sousední body. Vše záleží na počtu sousedních bodů. Podle počtu sousedních bodů se zobrazují nebo nezobrazují další barevné kanály. Pro 24 sousedních bodů je tak 8 sousedních bodů pro každý barevný kanál. Kdyby se však počet sousedních bodů byl jen 19 tak bude červený kanál pro prvních osm bodů ve směru šipek, zelený kanál pro dalších  osm následujících bodů a nakonec pro zbývající 3 body modrý kanál. Takto analogicky pro jiné počty sousedních bodů.
+The following diagram explains the meaning of each RGB channel when displaying LBP. The colors explain what part of the environment affected the given LBP value. Each color channel thus displays the value as if the LBP sum was calculated only for points from the given neighborhood. Neighboring points mean neighboring points. It all depends on the number of neighboring points. Additional color channels are displayed or not displayed depending on the number of adjacent points. For 24 contiguous points, there are 8 contiguous points for each color channel. However, if the number of neighboring points was only 19 then the red channel for the first eight points in the direction of the arrows, the green channel for the next eight points and finally for the remaining 3 points the blue channel. Thus analogous to other numbers of neighboring points.
 <figure>
-<figcaption>Diagram 1 - vizalizace hodnot, p = počet sousedních bodů pixelu</figcaption>
-<img src=GimpPluginLBPSousedniBodydrawio.JPG width="1000">
+<figcaption> Diagram 1 - visualization of values, p = number of adjacent pixel points </figcaption>
+<img src = GimpPluginLBPSousedniBodydrawio.JPG width = "1000">
 </figure>
 
 <figure>
-<img src=example_images/LBP10r8p.JPG width="400" alt="LBP s parametry radius = 10 a počet sousedních bodů = 8">
-<figcaption>LBP s parametry radius = 10 a počet sousedních bodů = 8</figcaption>
+<img src = example_images / LBP10r8p.JPG width = "400" alt = "LBP with radius = 10 and number of neighboring points = 8">
+<figcaption> LBP with parameters radius = 10 and number of neighboring points = 8 </figcaption>
 
-<img src=example_images/LBP1r16p.JPG width="400" alt="LBP s parametry radius = 1 a počet sousedních bodů = 16">
-<figcaption>LBP s parametry radius = 1 a počet sousedních bodů = 16, Zajímavé si povšimnout že červená barva je pro hodnoty LBP sumy pouze s dolními sousedními body a zelená naopak</figcaption>
+<img src = example_images / LBP1r16p.JPG width = "400" alt = "LBP with radius = 1 and number of neighboring points = 16">
+<figcaption> LBP with parameters radius = 1 and number of neighboring points = 16, It is interesting to note that the red color is for LBP values ​​of the sum only with lower neighboring points and green vice versa </figcaption>
 
-<img src=example_images/LBP10r24p.JPG width="400" alt="LBP s parametry radius = 10 a počet sousedních bodů = 24">
-<figcaption>LBP s parametry radius = 10 a počet sousedních bodů = 24</figcaption>
+<img src = example_images / LBP10r24p.JPG width = "400" alt = "LBP with radius = 10 and number of neighboring points = 24">
+<figcaption> LBP with parameters radius = 10 and number of neighboring points = 24 </figcaption>
 </figure>
 
 ### mLBP
 
-Metoda mLBP je odvozená z LBP a její výsledky jsou podobné LBB. Vizualizace mLBP má stejná pravidla jako LBP viz diagram 1.
+The mLBP method is derived from LBP and its results are similar to LBB. MLBP visualization has the same rules as LBP see diagram 1.
 
 <figure>
-<img src=example_images/mLBP10r8p.JPG width="400" alt="mLBP s parametry radius = 10 a počet sousedních bodů = 8">
-<figcaption>mLBP s parametry radius = 10 a počet sousedních bodů = 8</figcaption>
+<img src = example_images / mLBP10r8p.JPG width = "400" alt = "mLBP with radius = 10 and number of neighboring points = 8">
+mLf with parameters radius = 10 and number of neighboring points = 8 </figcaption>
 </figure>
 
 ### ULBP
 
-Metoda ULBP je výpočtem stejná základnímu LBP ale vynechává neuniformní hodnoty. V pluginu jsou ULBP vizualizovány  stejně jako LBP o max 16 bodech s tím že modrá barva simbolizuje vynechaný pixel s neuniformní hodnotou LBP. Na těchto obrázcích, které byli vytvořeny se stejnými parametry jen jednou s LBP a podruhé s ULBP, lze vidět oblasti s neuniformními hodnotami.
+The ULBP method is calculated by the same basic LBP but omits non-uniform values. In the plugin, ULBPs are visualized in the same way as LBPs with a maximum of 16 points, with the blue color symbolizing the omitted pixel with a non-uniform LBP value. Areas with non-uniform values ​​can be seen in these images, which were created with the same parameters only once with LBP and a second time with ULBP.
 
-Metoda LBP se zobrazuje podobně jako LBP jen s tím rozdílem, že maximální počet sousedních bodů je jen 16 a neuniformní hodnoty se zobrazují jako RGB(0,0,255).
+The LBP method is displayed similarly to LBP with the only difference that the maximum number of neighboring points is only 16 and non-uniform values ​​are displayed as RGB (0,0,255).
 
 <figure>
-<img src=example_images/LBP190r16p.JPG width="400" alt="LBP s parametry radius = 190 a počet sousedních bodů = 16">
-<figcaption>LBP s parametry radius = 190 a počet sousedních bodů = 16</figcaption>
+<img src = example_images / LBP190r16p.JPG width = "400" alt = "LBP with radius = 190 and number of neighboring points = 16">
+<figcaption> LBP with parameters radius = 190 and number of neighboring points = 16 </figcaption>
 
-<img src=example_images/ULBP190r16p.JPG width="400" alt="ULBP s parametry radius = 190 a počet sousedních bodů = 16">
-<figcaption>ULBP s parametry radius = 190 a počet sousedních bodů = 16</figcaption>
+<img src = example_images / ULBP190r16p.JPG width = "400" alt = "ULBP with parameters radius = 190 and number of neighboring points = 16">
+<figcaption> ULBP with parameters radius = 190 and number of neighboring points = 16 </figcaption>
 </figure>
 
 ### CLBP
 
-Výpočet CLBP se skládá ze třech částí CLBP_S, CLBP_M, CLBP_C. Plugin je vizualizuje všechny tři najednou CLBP_S( červený kanál RGB), CLBP_M( zelený kanál RGB) a CLBP_C( modrý kanál LBP). Jednotlivé kanály pak vizulizují hodnoty CLBP podčástí v rozsahu 0 až 255. Maximální počet sousedních bodů je 8.
+The CLBP calculation consists of three parts CLBP_S, CLBP_M, CLBP_C. The plugin visualizes all three at once CLBP_S (red channel RGB), CLBP_M (green channel RGB) and CLBP_C (blue channel LBP). The individual channels then visualize the CLBP subpart values ​​in the range 0 to 255. The maximum number of adjacent points is 8.
 
 <figure>
-<img src=example_images/CLBP10r8p.JPG width="400" alt="CLBP s parametry radius = 10 a počet sousedních bodů = 8">
-<figcaption>CLBP s parametry radius = 10 a počet sousedních bodů = 8</figcaption>
+<img src = example_images / CLBP10r8p.JPG width = "400" alt = "CLBP with radius = 10 and number of neighboring points = 8">
+<figcaption> CLBP with parameters radius = 10 and number of neighboring points = 8 </figcaption>
 </figure>
 
 #### CLBP_S
 
-Plugin umí zobrazit i jednotlivé komponenty CLBP. Hodnoty se mapují od nejmenších( nejtmavší) po největší(nejsvětlejší). Nejvyšší hodnota není bílá ale je to zabarvená bílá. Zde je zabarvená červenou, jelikož v CLBP je CLBP_S reprezentováno červeným kanálem RGB.
+The plugin can also display individual CLBP components. Values ​​are mapped from smallest (darkest) to largest (lightest). The highest value is not white but it is colored white. Here it is colored red, because in CLBP, CLBP_S is represented by a red RGB channel.
 
 <figure>
-<img src=example_images/CLBP_S10r8p.JPG width="400" alt="CLBP_S s parametry radius = 10 a počet sousedních bodů = 8">
-<figcaption>CLBP_S s parametry radius = 10 a počet sousedních bodů = 8</figcaption>
+<img src = example_images / CLBP_S10r8p.JPG width = "400" alt = "CLBP_S with parameters radius = 10 and number of neighboring points = 8">
+<figcaption> CLBP_S with parameters radius = 10 and number of neighboring points = 8 </figcaption>
 </figure>
 
 #### CLBP_M
 
-Plugin umí zobrazit i jednotlivé komponenty CLBP. Hodnoty se mapují od nejmenších( nejtmavší) po největší(nejsvětlejší). Nejvyšší hodnota není bílá ale je to zabarvená bílá. Zde je zabarvená zelenou, jelikož v CLBP je CLBP_M reprezentováno zeleným kanálem RGB.
+The plugin can also display individual CLBP components. Values ​​are mapped from smallest (darkest) to largest (lightest). The highest value is not white but it is a colorwhite. Here it is colored green, because in CLBP, CLBP_M is represented by the green RGB channel.
 
 <figure>
-<img src=example_images/CLBP_M10r8p.JPG width="400" alt="CLBP_M s parametry radius = 10 a počet sousedních bodů = 8">
-<figcaption>CLBP_M s parametry radius = 10 a počet sousedních bodů = 8</figcaption>
+<img src = example_images / CLBP_M10r8p.JPG width = "400" alt = "CLBP_M with parameters radius = 10 and number of neighboring points = 8">
+<figcaption> CLBP_M with parameters radius = 10 and number of neighboring points = 8 </figcaption>
 </figure>
 
 #### CLBP_C
 
-Plugin umí zobrazit i jednotlivé komponenty CLBP. Hodnoty se mapují od nejmenších( nejtmavší) po největší(nejsvětlejší). Nejvyšší hodnota není bílá ale je to zabarvená bílá. Zde je zabarvená modrou, jelikož v CLBP je CLBP_C reprezentováno modrým kanálem RGB.
+The plugin can also display individual CLBP components. Values ​​are mapped from smallest (darkest) to largest (lightest). The highest value is not white but it is colored white. Here it is colored blue, because in CLBP, CLBP_C is represented by a blue RGB channel.
 
 <figure>
-<img src=example_images/CLBP_C10r8p.JPG width="400" alt="CLBP_C s parametry radius = 10 a počet sousedních bodů = 8">
-<figcaption>CLBP_C s parametry radius = 10 a počet sousedních bodů = 8</figcaption>
+<img src = example_images / CLBP_C10r8p.JPG width = "400" alt = "CLBP_C with parameters radius = 10 and number of neighboring points = 8">
+<figcaption> CLBP_C with parameters radius = 10 and number of neighboring points = 8 </figcaption>
 </figure>
 
-## Krátké shrnutí funkcí
+## Short summary of functions
 
-Na všech funkcích je vidět, že jsou nějakým způsobem podobné. Není tedy divu, že mají všechny v názvu LBP. CLBP obsahuje nejvíce informací a hodnota LBP je zobrazována už jiným způsobem. Je však ze všech funkcí nejnáročnější na výpočet.
+All functions can be seen to be similar in some way. No wonder everyone has an LBP in their name. The CLBP contains the most information and the LBP value is displayed in a different way. However, it is the most computationally intensive of all the functions.
