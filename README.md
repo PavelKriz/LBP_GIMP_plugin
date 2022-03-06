@@ -1,4 +1,4 @@
-# Pavel's LBP Gimp Plugin
+# Local Binary Pattern (LBP) Gimp Plugin
 ## Input
 LBP Flags Create a GIMP plug-in that counts and displays (parametric) LBP 30b flags
 
