@@ -1,4 +1,5 @@
 # Local Binary Pattern (LBP) Gimp Plugin
+Doxygen documentation may be found [here](https://pavelkriz.github.io/LBP_GIMP_plugin/).
 ## Input
 LBP Flags Create a GIMP plug-in that counts and displays (parametric) LBP 30b flags
 
