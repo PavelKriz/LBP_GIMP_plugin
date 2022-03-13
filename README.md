@@ -1,6 +1,6 @@
 # Local Binary Pattern (LBP) Gimp Plugin
 Doxygen documentation may be found [here](https://pavelkriz.github.io/LBP_GIMP_plugin/).
-## Input
+## University task input Input
 LBP Flags Create a GIMP plug-in that counts and displays (parametric) LBP 30b flags
 
 Create a plugin that counts and displays basic, not widespread LBP flags.
@@ -12,9 +12,6 @@ An additional 10b can be obtained using a centralized LBP.
 An additional 10b can be obtained using LBP dominants.
 
 The task can be further extended by other variants of LBP features.
-
-## Note for evaluators
- After consulting with the instructor, I implemented the assignment for a total of 50 points. I implemented the basic task, extended other LBP methods. The condition of the consulting teacher for the 50-point task was the implementation of a more complex LBP, thus the CLBP is implemented here. Also added to the input to slightly improve the UI plugin, now it's a bit interactive. Other advantages of why I think my implementation of such a plugin is good are listed in the Plugin Properties section. I would also try to mention mainly the documentation that I tried to do extensively, because I missed something like that when creating the plugin. In particular, none of the students' sample works are written in c ++. I have tried to do this, if this work is decent, so that it can help future students.
 
 ## Introduction
 According to the assignment, the plugin was added to the Gimp photo editor. The goal of the plugin is to calculate and visualize the selected types of LBP flags. Implemented LBP methods of symptom screening are LBP, mLBP, ULBP, CLBP. A description of these algorithms is given in the appendix Description of used algorithms. Further descriptions of the algorithms used can be found in the code documentation.
