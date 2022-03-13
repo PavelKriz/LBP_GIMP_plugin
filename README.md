@@ -11,7 +11,7 @@ An additional 10b can be obtained using a centralized LBP.
 
 An additional 10b can be obtained using LBP dominants.
 
-The task can be further extended by other variants of LBP symptoms.
+The task can be further extended by other variants of LBP features.
 
 ## Note for evaluators
  After consulting with the instructor, I implemented the assignment for a total of 50 points. I implemented the basic task, extended other LBP methods. The condition of the consulting teacher for the 50-point task was the implementation of a more complex LBP, thus the CLBP is implemented here. Also added to the input to slightly improve the UI plugin, now it's a bit interactive. Other advantages of why I think my implementation of such a plugin is good are listed in the Plugin Properties section. I would also try to mention mainly the documentation that I tried to do extensively, because I missed something like that when creating the plugin. In particular, none of the students' sample works are written in c ++. I have tried to do this, if this work is decent, so that it can help future students.
@@ -75,7 +75,7 @@ In all implementation cases, the range of the radio is a maximum of 190 and a mi
 
 ### LBP
 
-LBP is a method of obtaining the symptoms on which other LBP methods are based. The plugin displays the LBP values ​​according to Figure 1. Each color has its own meaning.
+LBP is a method of obtaining the features on which other LBP methods are based. The plugin displays the LBP values ​​according to Figure 1. Each color has its own meaning.
 
 The following diagram explains the meaning of each RGB channel when displaying LBP. The colors explain what part of the environment affected the given LBP value. Each color channel thus displays the value as if the LBP sum was calculated only for points from the given neighborhood. Neighboring points mean neighboring points. It all depends on the number of neighboring points. Additional color channels are displayed or not displayed depending on the number of adjacent points. For 24 contiguous points, there are 8 contiguous points for each color channel. However, if the number of neighboring points was only 19 then the red channel for the first eight points in the direction of the arrows, the green channel for the next eight points and finally for the remaining 3 points the blue channel. Thus analogous to other numbers of neighboring points.
 <figure>
